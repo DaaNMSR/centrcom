@@ -1,0 +1,23 @@
+.button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: #FAD12E;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+}
+
+.text {
+  padding: 17px 0 17px 14px;
+}
+
+.closeIcon {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.closeIcon,
+.burgerIcon {
+  margin-right: 14px;
+}

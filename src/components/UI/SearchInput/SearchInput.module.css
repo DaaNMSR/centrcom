@@ -1,0 +1,18 @@
+.inputContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: 1px solid #F2F4F7;
+  border-radius: 12px;
+  padding: 4px 4px 4px 14px;
+  background-color: white;
+}
+
+.input {
+  padding: 0 12px;
+  width: 637px;
+}
+
+.input::placeholder {
+  color: #667085
+}

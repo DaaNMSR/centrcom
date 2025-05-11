@@ -1,0 +1,20 @@
+.button,
+.buttonWithIcon {
+  padding: 12px 14px;
+  background-color: #F2F4F7;
+  border-radius: 10px;
+}
+
+.button:hover,
+.buttonWithIcon:hover {
+  cursor: pointer;
+  background-color: #EBEDF1;
+}
+
+.buttonWithIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0 12px;
+  padding: 14px;
+}
