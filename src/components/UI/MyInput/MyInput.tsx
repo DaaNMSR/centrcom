@@ -1,14 +1,14 @@
 import { useState } from 'react';
-import styles from './SearchInput.module.css';
+import styles from './MyInput.module.css';
 import searchIcon from './search.svg';
-import HeaderButton from '../HeaderButton/HeaderButton';
+import MyButton from '../MyButton/MyButton';
 
-interface SearchInputProps {
+interface MyInputProps {
   placeholder?: string;
   showButton?: boolean;
 }
 
-const SearchInput: React.FC<SearchInputProps> = ({ placeholder = 'Поиск...', showButton = true }) => {
+const MyInput: React.FC<MyInputProps> = ({ placeholder = 'Поиск...', showButton = true }) => {
   const [searchValue, setSearchValue] = useState<string>('');
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -26,9 +26,9 @@ const SearchInput: React.FC<SearchInputProps> = ({ placeholder = 'Поиск...'
         className={styles.input}
       />
 
-      {showButton && <HeaderButton text="Найти" />}
+      {showButton && <MyButton text="Найти" />}
     </div>
   );
 };
 
-export default SearchInput;
+export default MyInput;

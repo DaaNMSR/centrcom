@@ -1,19 +1,19 @@
 import { Link } from 'react-router-dom';
-import HeaderToggleButton from '../../../UI/HeaderToggleButton/HeaderToggleButton';
-import HeaderButton from '../../../UI/HeaderButton/HeaderButton';
-import SearchInput from '../../../UI/SearchInput/SearchInput';
+import ToggleButton from '../../../UI/ToggleButton/ToggleButton';
+import MyButton from '../../../UI/MyButton/MyButton';
+import MyInput from '../../../UI/MyInput/MyInput';
 import logo from './images/logo.svg';
 import styles from './HeaderBottom.module.css';
 
 const HeaderBottom = () => {
   return (
-    <div className={styles.header__bottom}>
+    <div className={styles.headerBottom}>
       <Link to="/">
-        <img src={logo} alt="логотип" />
+        <img src={logo} alt="логотип" className={styles.logo} />
       </Link>
-      <HeaderToggleButton />
-      <SearchInput />
-      <HeaderButton text="Корзина" alt="корзина" icon={true} />
+      <ToggleButton />
+      <MyInput />
+      <MyButton text="Корзина" alt="корзина" icon={true} minWidth="130px" />
     </div>
   );
 };

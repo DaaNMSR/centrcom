@@ -1,6 +1,10 @@
-.header__bottom {
+.headerBottom {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 16px;
   margin-bottom: 32px;
+}
+
+.logo {
+  min-width: 276px;
 }

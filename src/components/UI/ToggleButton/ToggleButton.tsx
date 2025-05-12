@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
-import styles from './HeaderToggleButton.module.css';
+import styles from './ToggleButton.module.css';
 
-interface HeaderToggleButtonProps {
-  isOpen?: boolean;
-}
-
-const HeaderToggleButton: React.FC<HeaderToggleButtonProps> = ({ isOpen: initialOpen = false }) => {
-  const [isToggled, setIsToggled] = useState(initialOpen);
+const ToggleButton: React.FC = () => {
+  const [isToggled, setIsToggled] = useState(false);
 
   const handleClick = () => {
     setIsToggled(!isToggled);
   };
 
   return (
-    <button className={styles.button} onClick={handleClick}>
+    <button
+      className={styles.button}
+      onClick={handleClick}
+      aria-label={isToggled ? 'Закрыть каталог' : 'Открыть каталог'}
+    >
       <span className={styles.text}>Каталог</span>
       <span className={styles.icon}>
         {isToggled ? (
@@ -32,4 +32,4 @@ const HeaderToggleButton: React.FC<HeaderToggleButtonProps> = ({ isOpen: initial
   );
 };
 
-export default HeaderToggleButton;
+export default ToggleButton;
