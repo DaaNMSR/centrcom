@@ -1,7 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
+import sliderReducer from '../redux/reducers/sliderSlice';
 
 export const store = configureStore({
-  reducer: {},
+  reducer: { slider: sliderReducer },
 });
 
 export type RootState = ReturnType<typeof store.getState>;

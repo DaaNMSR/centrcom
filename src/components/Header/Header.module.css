@@ -4,6 +4,8 @@
 
 .header {
   border-bottom: 1px solid #F2F4F7;
+  background-color: #FFF;
+  margin-bottom: 16px;
 }
 
 .container {
