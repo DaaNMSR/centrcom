@@ -6,11 +6,6 @@ import mainBg from '../../pages/MainPage/components/Slider/images/main-bg.svg';
 import sellBg from '../../pages/MainPage/components/Slider/images/sell-bg.svg';
 import repairBg from '../../pages/MainPage/components/Slider/images/repair-bg.svg';
 
-interface SlideButton {
-  text: string;
-  to: string;
-}
-
 interface SliderState {
   currentSlide: number;
   backgroundImages: {
@@ -24,7 +19,10 @@ interface SliderState {
     description?: string;
     location?: string;
     address?: string;
-    button?: SlideButton;
+    button?: {
+      text: string;
+      to: string;
+    };
     mainBackground: string;
   }[];
 }
