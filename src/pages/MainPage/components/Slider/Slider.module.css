@@ -2,6 +2,8 @@
   overflow: hidden;
   position: relative;
   border-radius: 12px;
+  margin-bottom: 32px;
+  border: 1px solid #F2F4F7
 }
 
 .slidesWrapper {
