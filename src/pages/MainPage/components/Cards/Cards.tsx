@@ -4,7 +4,7 @@ import { cards } from './const';
 
 const Cards = () => {
   return (
-    <div className={styles.cards}>
+    <section className={styles.cards}>
       {cards.map(card => (
         <div className={styles.card} key={card.title}>
           <h3 className={styles.cardTitle}>{card.title}</h3>
@@ -15,7 +15,7 @@ const Cards = () => {
           <img src={card.backgroundPath} className={styles.background} />
         </div>
       ))}
-    </div>
+    </section>
   );
 };
 

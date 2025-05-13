@@ -7,6 +7,7 @@ import JobsPage from './pages/JobsPage/JobsPage';
 import ContactsPage from './pages/ContactsPage/ContactsPage';
 import MainPage from './pages/MainPage/MainPage';
 import './App.css';
+import Footer from './components/Footer/Footer';
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
         <Route path="/jobs" element={<JobsPage />} />
         <Route path="/contacts" element={<ContactsPage />} />
       </Routes>
+      <Footer />
     </>
   );
 };
