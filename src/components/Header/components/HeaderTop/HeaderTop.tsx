@@ -28,9 +28,9 @@ const HeaderTop = () => {
           </li>
         </ul>
       </nav>
-      <a href="tel:83519583111" aria-label="Позвонить 8(3519)583-111" className={styles.headerContacts}>
+      <Link to="tel:83519583111" aria-label="Позвонить 8(3519)583-111" className={styles.headerContacts}>
         8 (3519) 583-111 (c 10:00 до 20:00)
-      </a>
+      </Link>
     </div>
   );
 };
