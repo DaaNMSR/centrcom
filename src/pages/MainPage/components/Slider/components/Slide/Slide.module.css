@@ -50,7 +50,7 @@
   font-size: 18px;
   line-height: 1.5;
   max-width: 430px;
-  margin-bottom: 57px;
+  margin-bottom: 70px;
 }
 
 .slideLocation {
@@ -78,5 +78,5 @@
 }
 
 .slideButton:hover {
-  opacity: 0.95;
+  opacity: 0.9;
 }

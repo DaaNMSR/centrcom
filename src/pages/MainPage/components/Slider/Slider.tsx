@@ -23,14 +23,14 @@ const Slider: React.FC = () => {
   };
 
   return (
-    <div className={styles.sliderContainer}>
+    <section className={styles.sliderContainer}>
       <div className={styles.slidesWrapper} style={slideStyle}>
         {slides.map(slide => (
           <Slide key={slide.id} slide={slide} backgroundImages={backgroundImages} />
         ))}
       </div>
       <SliderDots currentSlide={currentSlide} totalSlides={slides.length} />
-    </div>
+    </section>
   );
 };
 
