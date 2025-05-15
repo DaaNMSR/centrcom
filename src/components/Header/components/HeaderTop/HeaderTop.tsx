@@ -9,6 +9,8 @@ import { useEffect } from 'react';
 const HeaderTop = () => {
   const dispatch = useAppDispatch();
   const isOpen = useAppSelector(state => state.cityPopup.isOpen);
+  const currentCity = useAppSelector(state => state.cityPopup.currentCity);
+
   const handleOpenPopup = () => {
     dispatch(openPopup());
   };
@@ -30,7 +32,7 @@ const HeaderTop = () => {
             }}
           >
             <img src={locationIcon} alt="location" />
-            <span>Магнитогорск</span>
+            <span>{currentCity}</span>
           </li>
           {isOpen && <CityPopup />}
           <li className={styles.menuLink}>
