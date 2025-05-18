@@ -7,7 +7,8 @@
 
 .menuList li:first-child {
   display: flex;
-  gap: 0 10px
+  gap: 0 10px;
+  min-width: 142px;
 }
 
 .menuList li:first-child:hover {

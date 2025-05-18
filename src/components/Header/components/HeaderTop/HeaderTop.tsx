@@ -2,9 +2,10 @@ import { Link } from 'react-router-dom';
 import styles from './HeaderTop.module.css';
 import locationIcon from './images/location.svg';
 import { useAppDispatch, useAppSelector } from '../../../../redux/hooks';
-import { openPopup } from '../../../../redux/reducers/cityPopUpSlice';
+import { openPopup } from '../../../../redux/reducers/cityPopupSlice';
 import CityPopup from './components/CityPopup/CityPopup';
 import { useEffect } from 'react';
+import { menu } from './const';
 
 const HeaderTop = () => {
   const dispatch = useAppDispatch();
@@ -35,21 +36,11 @@ const HeaderTop = () => {
             <span>{currentCity}</span>
           </li>
           {isOpen && <CityPopup />}
-          <li className={styles.menuLink}>
-            <Link to="/sell">Продать</Link>
-          </li>
-          <li className={styles.menuLink}>
-            <Link to="/credit">Кредит</Link>
-          </li>
-          <li className={styles.menuLink}>
-            <Link to="/repair">Ремонт</Link>
-          </li>
-          <li className={styles.menuLink}>
-            <Link to="/jobs">Вакансии</Link>
-          </li>
-          <li className={styles.menuLink}>
-            <Link to="/contacts">Контакты</Link>
-          </li>
+          {menu.map(item => (
+            <li className={styles.menuLink} key={item.to}>
+              <Link to={item.to}>{item.text}</Link>
+            </li>
+          ))}
         </ul>
       </nav>
       <Link to="tel:83519583111" aria-label="Позвонить 8(3519)583-111" className={styles.headerContacts}>

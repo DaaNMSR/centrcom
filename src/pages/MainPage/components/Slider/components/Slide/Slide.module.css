@@ -3,6 +3,8 @@
   min-width: 100%;
   position: relative;
   z-index: 1000;
+  overflow: hidden;
+  border-radius: 12px;
 }
 
 .slideInner {
@@ -50,7 +52,7 @@
   font-size: 18px;
   line-height: 1.5;
   max-width: 430px;
-  margin-bottom: 70px;
+  margin-bottom: 57px;
 }
 
 .slideLocation {
@@ -68,12 +70,13 @@
 }
 
 .slideButton {
-  padding: 16px 14px;
+  display: inline-block;
+  padding: 18px 14px;
   background-color: #101828;
   color: #FFF;
   cursor: pointer;
   border-radius: 12px;
-  line-height: 0.2;
+  line-height: 1;
   transition: 0.2s ease;
 }
 

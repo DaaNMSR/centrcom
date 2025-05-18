@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../../../../../redux/hooks';
-import { closePopup, changeCurrentCity, setCity } from '../../../../../../redux/reducers/cityPopUpSlice';
+import { closePopup, changeCurrentCity, setCity } from '../../../../../../redux/reducers/cityPopupSlice';
 import CloseIcon from '../../../../../UI/svg/closeIcon';
 import styles from './CityPopup.module.css';
 

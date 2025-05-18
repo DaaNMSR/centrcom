@@ -34,7 +34,7 @@ const Slide: React.FC<SlideProps> = ({ slide, backgroundImages }) => {
         {slide.location && <p className={styles.slideLocation}>{slide.location}</p>}
         {slide.address && <p className={styles.slideAddress}>{slide.address}</p>}
         {slide.button && (
-          <Link className={styles.slideButton} to={slide.button.to}>
+          <Link to={slide.button.to} className={styles.slideButton}>
             {slide.button.text}
           </Link>
         )}
