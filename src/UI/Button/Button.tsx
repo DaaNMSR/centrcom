@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './Button.module.css';
 
 type ButtonVariant = 'yellow' | 'gray' | 'dark' | 'ghost' | 'disabled';
