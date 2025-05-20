@@ -1,5 +1,37 @@
-const JobsPage = () => {
-  return <div>JobsPage</div>;
-};
+import { Button } from '../../UI/Button';
+import { vacancies } from './const';
+import styles from './JobsPage.module.css';
 
-export default JobsPage;
+export const JobsPage = () => {
+  return (
+    <div className={styles.container}>
+      <div className={styles.vacanciesWrapper}>
+        {vacancies.map(vacancy => (
+          <div className={styles.vacancy} key={vacancy.title}>
+            <h2 className={styles.title}>{vacancy.title}</h2>
+            <p className={styles.wages}>
+              {vacancy.wages.length === 1
+                ? `${vacancy.wages[0]}₽`
+                : `${vacancy.wages[0]}₽ — ${vacancy.wages[1]}₽`}
+            </p>
+            <div className={styles.detailsWrapper}>
+              {vacancy.details.map(detail => (
+                <>
+                  <p>{detail}</p>
+                  {detail !== vacancy.details[vacancy.details.length - 1] && <span>•</span>}
+                </>
+              ))}
+            </div>
+            <p className={styles.description}>{vacancy.description}</p>
+            <div className={styles.buttons}>
+              <Button size="md">Подробнее</Button>
+              <Button size="md" variant="yellow">
+                Откликнуться
+              </Button>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
