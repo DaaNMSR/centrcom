@@ -1,0 +1,81 @@
+.container {
+  max-width: 1400px;
+  padding: 0 20px;
+  margin: 0 auto;
+  display: flex;
+  gap: 32px;
+  margin-bottom: 192px;
+}
+
+.detailTitle,
+.wages {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.2;
+}
+
+.wages {
+  margin-bottom: 24px;
+  min-width: 384px;
+}
+
+
+.detailContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  background-color: #FFF;
+  border: 1px solid #F2F4F7;
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.subTitle {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+
+.detailsList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.detailsItem,
+.location,
+.detailsItemTitle,
+.descriptionLine {
+  font-weight: 400;
+}
+
+
+.detailsItem,
+.location {
+  line-height: 1.5;
+}
+
+.detailsItemTitle {
+  color: #667085;
+}
+
+.descriptionLine {
+  line-height: 2.1;
+  max-width: 848px;
+}
+
+.moreDetails {
+  background-color: #FFF;
+  border: 1px solid #F2F4F7;
+  border-radius: 12px;
+  padding: 24px;
+  max-height: fit-content;
+}
+
+.linksBlock {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
