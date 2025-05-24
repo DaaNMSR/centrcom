@@ -1,0 +1,130 @@
+.form {
+  max-width: 664px;
+}
+
+.formHeader a {
+  font-weight: 400;
+}
+
+.formHeader a:first-child {
+  color: #54D061;
+}
+
+.formHeader a:nth-child(2) {
+  color: #35ACE1;
+}
+
+.formHeader a:last-child {
+  color: #7360F2;
+}
+
+.formHeaderTitle {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+
+.formHeaderDescription {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 32px;
+}
+
+.formTitle {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 24px;
+}
+
+.inputsFirstBlock {
+  margin-bottom: 32px;
+}
+
+.inputsFirstBlock>* {
+  min-width: 0;
+}
+
+.inputsSecondBlock {
+  margin-bottom: 12px;
+}
+
+.inputsFirstBlock,
+.inputsSecondBlock {
+  display: flex;
+  gap: 12px;
+}
+
+.submit {
+  width: 100%;
+}
+
+.fileUploadWrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 332px;
+  background-color: #F2F4F7;
+  border-radius: 12px;
+  margin-bottom: 32px;
+  overflow: hidden;
+}
+
+.fileUploadContent {
+  display: flex;
+  gap: 14px;
+  cursor: pointer;
+}
+
+.fileError {
+  background-color: #F044381A;
+}
+
+.fileErrorText {
+  display: none;
+}
+
+.errorMessage {
+  color: #F04438;
+  margin-left: 12px;
+}
+
+.fileUploadContent p {
+  color: #667085;
+}
+
+.radioGroup {
+  padding-left: 10px;
+  margin: 22px 0 42px 0;
+  display: flex;
+  gap: 32px;
+}
+
+.policyText {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-top: 12px;
+}
+
+.policyText a {
+  color: #2AB8EB
+}
+
+.removeFileButton {
+  cursor: pointer;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}
+
+.textAreaWrapper {
+  margin: 24px 0 32px 0;
+}
+
+.textAreaWrapper input {
+  color: red
+}
