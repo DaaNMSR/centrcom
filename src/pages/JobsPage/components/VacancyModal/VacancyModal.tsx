@@ -7,7 +7,8 @@ import { Input } from '../../../../UI/Input';
 import { Button } from '../../../../UI/Button';
 import CloseIcon from '../../../../components/Header/components/HeaderBottom/images/mySvg/CloseIcon';
 import { Link } from 'react-router-dom';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { FormSuccessModal } from '../../../../components/MyForm/components/FormSuccessModal';
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required('Это поле обязательное, введите ваше имя!'),
@@ -20,6 +21,7 @@ const validationSchema = Yup.object().shape({
 });
 
 export const VacancyModal = () => {
+  const [isSuccessOpen, setIsSuccessOpen] = useState<boolean>(false);
   const dispatch = useAppDispatch();
   const { isOpen, vacancyId } = useAppSelector(state => state.modal);
 
@@ -61,7 +63,14 @@ export const VacancyModal = () => {
     };
   }, [isOpen]);
 
-  if (!isOpen || !vacancyId) return null;
+  if ((!isOpen || !vacancyId) && isSuccessOpen) {
+    return <FormSuccessModal description="jobsPage" onClose={() => setIsSuccessOpen(false)} />;
+  }
+
+  if (!isOpen || !vacancyId) {
+    return null;
+  }
+
   return (
     <div className={styles.modalWrapper}>
       <div className={styles.modal} ref={modalRef}>
@@ -74,9 +83,10 @@ export const VacancyModal = () => {
           validationSchema={validationSchema}
           onSubmit={(values, { setSubmitting, resetForm }) => {
             console.log({ values, vacancyId });
+            setIsSuccessOpen(true);
+            dispatch(closeModal());
             setSubmitting(false);
             resetForm();
-            dispatch(closeModal());
           }}
         >
           {({ values, handleChange, handleBlur, errors, touched }) => (
