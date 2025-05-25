@@ -1,0 +1,1 @@
+export { CatalogPopup } from './CatalogPopup';

@@ -1,0 +1,75 @@
+.popupWrapper {
+  position: absolute;
+  top: 128px;
+  display: flex;
+  z-index: 2000;
+  padding: 48px 16px 16px 0;
+  background-color: #FFF;
+  border: 1px solid rgba(242, 244, 247, 1);
+  border-radius: 12px;
+  align-items: flex-start;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid rgba(242, 244, 247, 1);
+  padding-right: 32px;
+  margin-right: 32px;
+}
+
+.category {
+  min-width: 313px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 0 14px 16px;
+}
+
+.category:hover {
+  background-color: #F1F1F1;
+}
+
+.category span {
+  white-space: nowrap;
+}
+
+.categoryImg {
+  height: 20px;
+  width: 20px;
+}
+
+.subCategories {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: repeat(3, min-content);
+  gap: 32px;
+}
+
+.columnSubCategory {
+  min-width: 300px;
+  max-width: 300px;
+  line-height: 1;
+}
+
+.columnSubCategory h4 {
+  margin-bottom: 16px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.columnSubCategory ul {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.columnSubCategory li {
+  color: rgba(102, 112, 133, 1);
+  cursor: pointer;
+}
+
+.columnSubCategory li:hover {
+  color: inherit;
+}
