@@ -1,0 +1,53 @@
+.container {
+  max-width: 1400px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+.cartHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cartTitle {
+  font-weight: 700;
+  font-size: 36px;
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 48px 0;
+  background-color: #FFF;
+  border-radius: 12px;
+  border: 1px solid #F2F4F7;
+  margin-bottom: 192px;
+}
+
+.image {
+  width: 256px;
+  height: 256px;
+  margin-bottom: 24px;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+
+.description {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.buttons {
+  margin-top: 24px;
+  display: flex;
+  gap: 12px;
+}
