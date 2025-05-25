@@ -10,11 +10,13 @@ export const SellCategory = () => {
   const initialSelect = selectedCard ? selectedCard.title : '';
 
   return (
-    <>
+    <div className={styles.container}>
       <div className={styles.formWrapper}>
         <MyForm fileUpload={true} header="sellPage" initialSelect={initialSelect} />
       </div>
-      <FormCards formCards={formCards} />;
-    </>
+      <div className={styles.formCardsWrapper}>
+        <FormCards formCards={formCards} />
+      </div>
+    </div>
   );
 };
