@@ -5,7 +5,7 @@ import { useAppSelector } from '../../redux/hooks';
 import type { RootState } from '../../redux/store';
 import Slide from '../MainPage/components/Slider/components/Slide/Slide';
 import { formCards, repairCards } from './const';
-import styles from './RepairPage.module.css';
+import styles from './RepairPage.module.scss';
 
 export const RepairPage = () => {
   const { slides, backgroundImages } = useAppSelector((state: RootState) => state.slider);

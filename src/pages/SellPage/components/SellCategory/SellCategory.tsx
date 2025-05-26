@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom';
 import { FormCards } from '../../../../components/FormCards';
 import { MyForm } from '../../../../components/MyForm';
 import { formCards, sellCards } from '../../const';
-import styles from './SellCategory.module.css';
+import styles from './SellCategory.module.scss';
 
 export const SellCategory = () => {
   const { category } = useParams<{ category: string }>();

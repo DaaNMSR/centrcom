@@ -1,6 +1,6 @@
 import { ListDescription } from '../../components/ListDescription';
 import { creditList } from './const';
-import styles from './CreditPage.module.css';
+import styles from './CreditPage.module.scss';
 
 export const CreditPage = () => {
   return (

@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../../UI/Button';
-import styles from './PageNotFound.module.css';
+import styles from './PageNotFound.module.scss';
 import notFound from './not-found.png';
 
 export const PageNotFound = () => {

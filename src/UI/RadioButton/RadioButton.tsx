@@ -1,4 +1,4 @@
-import styles from './RadioButton.module.css';
+import styles from './RadioButton.module.scss';
 
 interface RadioButtonProps {
   label: string;

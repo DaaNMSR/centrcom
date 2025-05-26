@@ -1,4 +1,4 @@
-import styles from './Footer.module.css';
+import styles from './Footer.module.scss';
 import logo from '../Header/components/HeaderBottom/images/logo.svg';
 import visa from './images/visa.svg';
 import masterCard from './images/MasterCard.svg';
