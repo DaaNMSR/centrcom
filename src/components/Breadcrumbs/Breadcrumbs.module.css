@@ -4,6 +4,11 @@
   margin-bottom: 25px;
 }
 
+.crumb {
+  display: flex;
+  align-items: center;
+}
+
 .separator {
   margin-right: 12px;
 }

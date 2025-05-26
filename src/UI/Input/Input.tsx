@@ -5,19 +5,24 @@ import arrowIcon from './images/arrowdown.svg';
 
 export type InputStatus = 'default' | 'disabled' | 'error';
 export type InputType = 'text' | 'select' | 'textarea' | React.HTMLInputTypeAttribute;
+export type InputSize = 'lg' | 'md';
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
+  inputSize?: InputSize;
   helperText?: string;
   status?: InputStatus;
   iconLeft?: React.ReactNode;
   buttonRight?: React.ReactNode;
   type?: InputType;
   options?: { value: string; label: string }[];
+  error?: string;
+  touched?: boolean;
 }
 
 export const Input: React.FC<InputProps> = ({
   label,
+  inputSize = 'lg',
   helperText,
   status = 'default',
   iconLeft,
@@ -25,13 +30,22 @@ export const Input: React.FC<InputProps> = ({
   disabled,
   type = 'text',
   options = [],
+  error,
+  touched,
   ...props
 }) => {
-  const wrapperClass = [styles.wrapper, status === 'error' && styles.error, disabled && styles.disabled]
+  const inputId = React.useId();
+
+  const showError = touched && !!error;
+  const currentStatus: InputStatus = showError ? 'error' : status;
+
+  const wrapperClass = [
+    styles.wrapper,
+    currentStatus === 'error' && styles.error,
+    disabled && styles.disabled,
+  ]
     .filter(Boolean)
     .join(' ');
-
-  const inputId = React.useId();
 
   return (
     <div className={styles.container}>
@@ -40,14 +54,22 @@ export const Input: React.FC<InputProps> = ({
           {label}
         </label>
       )}
+
       <div className={`${wrapperClass} ${!buttonRight ? styles.wrapperWithPadding : ''}`}>
         {iconLeft && <img src={searchIcon} alt="search" className={styles.img} />}
+
         {type === 'select' ? (
           <>
             <select
               id={inputId}
               disabled={disabled}
-              className={`${styles.input} ${styles.select} ${!buttonRight ? styles.inputWithPadding : ''}`}
+              className={`
+                ${styles.input} 
+                ${styles.select} 
+                ${!buttonRight ? styles.inputWithPadding : ''} 
+                ${inputSize === 'md' ? styles.inputWithPaddingMd : ''} 
+                ${props.value ? styles.active : ''}
+              `}
               {...(props as React.SelectHTMLAttributes<HTMLSelectElement>)}
             >
               {options.map(option => (
@@ -70,19 +92,23 @@ export const Input: React.FC<InputProps> = ({
             id={inputId}
             type={type}
             disabled={disabled}
-            className={`${styles.input} ${!buttonRight ? styles.inputWithPadding : ''} ${disabled && styles.disabled}`}
+            className={`
+              ${styles.input} 
+              ${!buttonRight ? styles.inputWithPadding : ''} 
+              ${disabled && styles.disabled} 
+              ${inputSize === 'md' ? styles.inputMedium : ''} 
+            `}
             {...props}
           />
         )}
 
         {buttonRight && <div className={styles.buttonRight}>{buttonRight}</div>}
       </div>
-      {helperText && (
-        <span
-          className={status === 'error' ? `${styles.helperText} ${styles.helperError}` : styles.helperText}
-        >
-          {helperText}
-        </span>
+
+      {showError ? (
+        <span className={`${styles.helperText} ${styles.helperError}`}>{error}</span>
+      ) : (
+        helperText && <span className={styles.helperText}>{helperText}</span>
       )}
     </div>
   );

@@ -1,7 +1,11 @@
-import { formCards } from './const';
+import type { FormCardsInterface } from '../../pages/SellPage/const';
 import styles from './FormCards.module.css';
 
-export const FormCards = () => {
+interface FormCardsProps {
+  formCards: FormCardsInterface;
+}
+
+export const FormCards: React.FC<FormCardsProps> = ({ formCards }) => {
   return (
     <>
       {formCards.mainTitle && <h2 className={styles.mainTitle}>{formCards.mainTitle}</h2>}

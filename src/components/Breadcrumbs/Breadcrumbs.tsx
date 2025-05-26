@@ -1,6 +1,8 @@
 import { Link, useLocation } from 'react-router-dom';
 import styles from './Breadcrumbs.module.css';
-import chevron from './chevron-right.svg';
+import chevronActive from './images/chevron-right-active.svg';
+import chevron from './images/chevron-right.svg';
+import { vacancies } from '../../pages/JobsPage/const';
 
 const PATH_NAMES: Record<string, string> = {
   '': 'Главная',
@@ -9,6 +11,31 @@ const PATH_NAMES: Record<string, string> = {
   repair: 'Ремонт',
   jobs: 'Вакансии',
   contacts: 'Контакты',
+  catalog: 'Каталог',
+  cartempty: 'Корзина',
+  laptop: 'Ноутбук',
+  tv: 'Телевизор',
+  phone: 'Телефон',
+  pc: 'Компьютер',
+  playstation: 'Приставка',
+  tablet: 'Планшет',
+  camera: 'Фотоаппарат',
+  refrigerator: 'Холодильник',
+  washingmachine: 'Стиральная машина',
+  bicycle: 'Велосипед',
+  monoblock: 'Моноблок',
+  cleaningps: 'Чистка игровых приставок и замена термопасты',
+  subscription: 'Оформление подписки на PS и XBOX',
+  repairps: 'Ремонт консолей',
+  softwarerestoration: 'Восстановление заводского ПО на консолях',
+  firmwareconsoles: 'Прошивка консолей (PS/PS4/XBOX360)',
+  repairgamepads: 'Ремонт геймпадов и замена стиков',
+  gamedownolads: 'Закачка игр',
+};
+
+const getVacancyTitleById = (id: string) => {
+  const vacancy = vacancies.find(v => v.id === id);
+  return vacancy?.title;
 };
 
 export const Breadcrumbs = () => {
@@ -18,16 +45,19 @@ export const Breadcrumbs = () => {
   const crumbs = pathParts.map((part, index) => {
     const to = '/' + pathParts.slice(0, index + 1).join('/');
     const isLast = index === pathParts.length - 1;
+    const label = PATH_NAMES[part] || (pathParts[index - 1] === 'jobs' ? getVacancyTitleById(part) : part);
+
+    const separatorImg = isLast ? chevronActive : chevron;
 
     return (
-      <span key={to}>
-        {!isLast ? (
-          <>
-            <Link to={to}>{PATH_NAMES[part] || part}</Link>
-            <span className={styles.separator}>›</span>
-          </>
+      <span key={to} className={styles.crumb}>
+        <img src={separatorImg} className={styles.separator} alt=">" />
+        {isLast ? (
+          <span className={styles.current}>{label}</span>
         ) : (
-          <span className={styles.current}>{PATH_NAMES[part] || part}</span>
+          <Link to={to} className={styles.link}>
+            {label}
+          </Link>
         )}
       </span>
     );
@@ -38,7 +68,6 @@ export const Breadcrumbs = () => {
       <Link to="/" className={styles.link}>
         Главная
       </Link>
-      {pathParts.length > 0 && <img src={chevron} className={styles.separator} />}
       {crumbs}
     </nav>
   );

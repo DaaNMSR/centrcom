@@ -5,11 +5,14 @@ import { PageNotFound } from '../../../../components/PageNotFound';
 import { Button } from '../../../../UI/Button';
 import { ListDescription } from '../../../../components/ListDescription';
 import { vacancies } from '../../const';
+import { VacancyModal } from '../VacancyModal';
+import { openModal } from '../../../../redux/reducers/modalSlice';
+import { useAppDispatch } from '../../../../redux/hooks';
 
 export const VacancyDetailPage = () => {
   const { vacancyId } = useParams();
   const vacancy = vacancies.find(v => v.id === vacancyId);
-
+  const dispatch = useAppDispatch();
   if (!vacancy) return <PageNotFound />;
 
   return (
@@ -49,7 +52,9 @@ export const VacancyDetailPage = () => {
             : `${vacancy.wages[0]}₽ — ${vacancy.wages[1]}₽`}
         </p>
         <div className={styles.linksBlock}>
-          <Button variant="yellow">Откликнуться</Button>
+          <Button variant="yellow" onClick={() => dispatch(openModal(vacancy.id))}>
+            Откликнуться
+          </Button>
           <Button>
             <Link to="https://www.avito.ru/" target="_blank">
               Вакансия на авито
@@ -60,6 +65,7 @@ export const VacancyDetailPage = () => {
           </Button>
         </div>
       </div>
+      <VacancyModal />
     </div>
   );
 };

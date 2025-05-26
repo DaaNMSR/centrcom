@@ -1,8 +1,15 @@
+import { useNavigate } from 'react-router-dom';
 import { Button } from '../../UI/Button';
 import { vacancies } from './const';
 import styles from './JobsPage.module.css';
+import { useAppDispatch } from '../../redux/hooks';
+import { openModal } from '../../redux/reducers/modalSlice';
+import { VacancyModal } from './components/VacancyModal';
 
 export const JobsPage = () => {
+  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+
   return (
     <div className={styles.container}>
       <div className={styles.vacanciesWrapper}>
@@ -24,14 +31,17 @@ export const JobsPage = () => {
             </div>
             <p className={styles.description}>{vacancy.description}</p>
             <div className={styles.buttons}>
-              <Button size="md">Подробнее</Button>
-              <Button size="md" variant="yellow">
+              <Button size="md" onClick={() => navigate(`/jobs/${vacancy.id}`)}>
+                Подробнее
+              </Button>
+              <Button size="md" variant="yellow" onClick={() => dispatch(openModal(vacancy.id))}>
                 Откликнуться
               </Button>
             </div>
           </div>
         ))}
       </div>
+      <VacancyModal />
     </div>
   );
 };

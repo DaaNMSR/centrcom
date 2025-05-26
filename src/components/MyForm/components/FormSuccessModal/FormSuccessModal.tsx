@@ -4,7 +4,7 @@ import CloseIcon from '../../../Header/components/HeaderBottom/images/mySvg/Clos
 import styles from './FormSuccessModal.module.css';
 
 interface FormSuccessModalProps {
-  description?: 'sellPage' | 'repairPage';
+  description?: 'sellPage' | 'repairPage' | 'jobsPage';
   onClose: () => void;
 }
 
@@ -41,12 +41,14 @@ export const FormSuccessModal: React.FC<FormSuccessModalProps> = ({ description 
   return (
     <div className={styles.formModalWrapper}>
       <div className={styles.formModal} ref={modalRef}>
-        <h2 className={styles.formModalTitle}>Заявка отправлена!</h2>
+        <h2 className={styles.formModalTitle}>
+          {description === 'jobsPage' ? 'Ваш отклик оставлен!' : 'Заявка отправлена!'}
+        </h2>
         <p className={styles.formModalTitleDescription}>
-          Мы с вами свяжемся в течении 24 часов и сообщим
-          {description === 'sellPage'
-            ? ' готовы ли мы купить товар'
-            : ' когда мы сможем забрать вашу технику для проведения диагностики'}
+          Мы с вами свяжемся в течении 24 часов
+          {description === 'jobsPage' ? ' и договоримся на интревью' : ' и сообщим'}
+          {description === 'sellPage' && ' готовы ли мы купить товар'}
+          {description === 'repairPage' && ' когда мы сможем забрать вашу технику для проведения диагностики'}
         </p>
         <Button variant="yellow" onClick={onClose}>
           Хорошо

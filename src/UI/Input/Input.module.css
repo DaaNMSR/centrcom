@@ -20,6 +20,11 @@
 
 .input {
   flex: 1;
+  line-height: 1;
+}
+
+.label {
+  margin-left: 4px;
 }
 
 .label,
@@ -47,14 +52,27 @@
   width: 100%;
 }
 
+.select {
+  color: #667085;
+}
+
+.select.active {
+  color: #101828;
+}
+
 .textarea {
   resize: vertical;
   width: 100%;
   padding-top: 14px;
+  padding-bottom: 77px;
 }
 
 .inputWithPadding {
   padding: 18px 0;
+}
+
+.inputWithPaddingMd {
+  padding: 14px 0;
 }
 
 .img {
@@ -77,4 +95,10 @@
 
 .buttonRight {
   margin: 4px 4px 4px 0;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  box-shadow: 0 0 0 30px white inset;
 }

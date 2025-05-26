@@ -1,4 +1,4 @@
-import { Button } from '../Button';
+import { Button } from '../../UI/Button';
 import styles from './ProductCard.module.css';
 import basketIcon from './images/basket-icon.svg';
 
@@ -14,7 +14,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
   return (
     <div className={styles.productCard}>
       <img src={product.imagePath} alt={product.title} />
-      <div className={styles.сontent}>
+      <div className={styles.content}>
         <h4 className={styles.title}>{product.title}</h4>
         <p className={styles.price}>{product.price}</p>
         <Button iconLeft={basketIcon} size="md" variant="dark" className={styles.buttonTop}>
