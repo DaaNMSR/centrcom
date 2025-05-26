@@ -61,7 +61,7 @@ export const footerCatalog: footerLink[] = [
 export const footerNavigation: footerLink[] = [
   {
     text: 'Каталог',
-    to: '/',
+    to: '/catalog',
   },
   {
     text: 'Продать',

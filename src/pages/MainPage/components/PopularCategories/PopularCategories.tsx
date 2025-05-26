@@ -1,24 +1,16 @@
+import { Category } from '../../../../components/Category';
 import { popularCategories } from './const';
-import classes from './PopularCategories.module.css';
+import styles from './PopularCategories.module.css';
 
-const PopularCategories = () => {
+export const PopularCategories = () => {
   return (
     <section>
-      <h3 className={classes.mainTitle}>Популярные категории</h3>
-      <div className={classes.popularCategories}>
+      <h3 className={styles.mainTitle}>Популярные категории</h3>
+      <div className={styles.popularCategories}>
         {popularCategories.map(category => (
-          <div key={category.imagePath} className={classes.category}>
-            <img
-              src={category.imagePath}
-              className={classes.categoryImage}
-              alt={`Категория: ${category.description}`}
-            />
-            <p className={classes.categoryDescription}>{category.description}</p>
-          </div>
+          <Category category={category} />
         ))}
       </div>
     </section>
   );
 };
-
-export default PopularCategories;

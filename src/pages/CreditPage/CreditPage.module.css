@@ -2,6 +2,7 @@
   max-width: 1400px;
   padding: 0 20px;
   margin: 0 auto;
+  margin-bottom: 192px;
 }
 
 .title {
@@ -16,22 +17,4 @@
   margin-bottom: 24px;
   font-weight: 400;
   line-height: 1.5;
-}
-
-.list {
-  margin-bottom: 192px;
-}
-
-.listItem {
-  font-weight: 400;
-  line-height: 1.5;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.listMarker {
-  width: 16px;
-  height: 1px;
-  background-color: #2AB8EB;
 }

@@ -2,7 +2,7 @@ import styles from './Header.module.css';
 import HeaderBottom from './components/HeaderBottom/HeaderBottom';
 import HeaderTop from './components/HeaderTop/HeaderTop';
 
-const Header = () => {
+export const Header = () => {
   return (
     <header className={styles.header}>
       <div className={styles.container}>
@@ -12,5 +12,3 @@ const Header = () => {
     </header>
   );
 };
-
-export default Header;

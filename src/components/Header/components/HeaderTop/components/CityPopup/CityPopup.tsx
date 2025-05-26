@@ -1,10 +1,15 @@
 import { useEffect, useRef, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../../../../../redux/hooks';
 import { closePopup, changeCurrentCity, setCity } from '../../../../../../redux/reducers/cityPopupSlice';
-import CloseIcon from '../../../../../UI/svg/closeIcon';
+import CloseIcon from './images/CloseIcon';
 import styles from './CityPopup.module.css';
+import { Button } from '../../../../../../UI/Button';
+import { Input } from '../../../../../../UI/Input';
 
-const CITIES = ['Магнитогорск', 'Белорецк'];
+export const CITIES = [
+  { value: 'Магнитогорск', label: 'Магнитогорск' },
+  { value: 'Белорецк', label: 'Белорецк' },
+];
 
 const CityPopup = () => {
   const dispatch = useAppDispatch();
@@ -39,38 +44,35 @@ const CityPopup = () => {
         </p>
         {isCorrectCity ? (
           <div className={styles.buttons}>
-            <button
+            <Button
               onClick={e => {
                 e.stopPropagation();
                 handleChangeCurrentCity();
               }}
             >
               Нет
-            </button>
-            <button onClick={() => handleClosePopup()}>Да, я тут</button>
+            </Button>
+            <Button onClick={() => handleClosePopup()} variant="yellow">
+              Да, я тут
+            </Button>
           </div>
         ) : (
           <>
             <div className={styles.selectWrapper}>
-              <label htmlFor="citySelect" className={styles.label}>
-                Выберите город
-              </label>
-              <select
-                id="citySelect"
-                className={styles.select}
+              <Input
+                label="Выберите город"
+                type="select"
+                options={CITIES}
+                inputSize="md"
                 value={selectedCity}
                 onChange={e => setSelectedCity(e.target.value)}
-              >
-                {CITIES.map(city => (
-                  <option key={city} value={city}>
-                    {city}
-                  </option>
-                ))}
-              </select>
+              />
             </div>
             <div className={styles.buttons}>
-              <button onClick={() => handleClosePopup()}>Закрыть</button>
-              <button onClick={() => handleConfirmCity()}>Подтвердить</button>
+              <Button onClick={() => handleClosePopup()}>Закрыть</Button>
+              <Button onClick={() => handleConfirmCity()} variant="yellow">
+                Подтвердить
+              </Button>
             </div>
           </>
         )}

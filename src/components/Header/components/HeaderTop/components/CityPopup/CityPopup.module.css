@@ -35,23 +35,7 @@
 }
 
 .buttons button {
-  border-radius: 12px;
-  padding: 18px 0;
   width: 100%;
-  line-height: 1;
-}
-
-.buttons button:hover {
-  cursor: pointer;
-  opacity: 0.85;
-}
-
-.buttons button:first-child {
-  background-color: #F2F4F7;
-}
-
-.buttons button:last-child {
-  background-color: #FAD12E;
 }
 
 .IconWrapper {
@@ -62,9 +46,6 @@
 }
 
 .selectWrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
   margin-bottom: 24px;
 }
 

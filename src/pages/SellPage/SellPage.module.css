@@ -7,3 +7,28 @@
 .banner {
   margin-bottom: 96px;
 }
+
+.mainTitle {
+  margin-bottom: 24px;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.2;
+}
+
+.cardsWrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  margin-bottom: 96px;
+}
+
+.formWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #FFF;
+  border: 1px solid #F2F4F7;
+  padding: 48px 0;
+  border-radius: 12px;
+  margin-bottom: 192px;
+}

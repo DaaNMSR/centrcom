@@ -6,7 +6,7 @@ import mir from './images/mir.svg';
 import { Link } from 'react-router-dom';
 import { footerCatalog, footerContacts, footerNavigation } from './const';
 
-const Footer = () => {
+export const Footer = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
@@ -55,5 +55,3 @@ const Footer = () => {
     </footer>
   );
 };
-
-export default Footer;

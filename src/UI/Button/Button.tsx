@@ -5,11 +5,12 @@ type ButtonVariant = 'yellow' | 'gray' | 'dark' | 'ghost' | 'disabled';
 type ButtonSize = 'sm' | 'md' | 'lg';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  children: string;
+  children: React.ReactNode | string;
   iconLeft?: React.ReactNode | string;
   iconRight?: React.ReactNode | string;
   variant?: ButtonVariant;
   size?: ButtonSize;
+  className?: string;
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -19,9 +20,10 @@ export const Button: React.FC<ButtonProps> = ({
   variant = 'gray',
   size = 'lg',
   disabled = false,
+  className = '',
   ...props
 }) => {
-  const buttonClass = [styles.button, styles[variant], styles[size], disabled && styles.disabled]
+  const buttonClass = [styles.button, styles[variant], styles[size], disabled && styles.disabled, className]
     .filter(Boolean)
     .join(' ');
 

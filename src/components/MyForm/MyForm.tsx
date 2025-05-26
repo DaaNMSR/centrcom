@@ -9,23 +9,30 @@ import { Link } from 'react-router-dom';
 import UploadIcon from './images/form-icon.svg';
 import CloseIcon from './images/close.png';
 import { FormSuccessModal } from './components/FormSuccessModal';
-
-const OPTIONS = [
-  { value: '', label: 'Выберите тип техники' },
-  { value: 'Смартфон', label: 'Смартфон' },
-  { value: 'Ноутбук', label: 'Ноутбук' },
-  { value: 'Планшет', label: 'Планшет' },
-  { value: 'ПК', label: 'ПК' },
-];
+import { sellCards } from '../../pages/SellPage/const';
+import { repairCards } from '../../pages/RepairPage/const';
 
 interface MyFormProps {
   fileUpload?: boolean;
-  header?: 'sellPage' | 'repairPage';
+  header?: 'sellPage' | 'repairPage' | 'jobsPage';
+  initialSelect?: string;
 }
 
-export const MyForm: React.FC<MyFormProps> = ({ fileUpload = false, header = 'sellPage' }) => {
+export const MyForm: React.FC<MyFormProps> = ({
+  fileUpload = false,
+  header = 'sellPage',
+  initialSelect = '',
+}) => {
   const [preview, setPreview] = useState<string | null>(null);
   const [showModal, setShowModal] = useState(false);
+
+  const OPTIONS = [
+    { value: '', label: 'Выберите тип техники' },
+    ...(header === 'sellPage' ? sellCards : repairCards).map(card => ({
+      value: card.title,
+      label: card.title,
+    })),
+  ];
 
   const validationSchema = Yup.object().shape({
     name: Yup.string().required('Это поле обязательное, введите ваше имя!'),
@@ -36,9 +43,7 @@ export const MyForm: React.FC<MyFormProps> = ({ fileUpload = false, header = 'se
       )
       .required('Это поле обязательное, введите ваш телефон!'),
     email: Yup.string().email('Неверный email').required('Это поле обязательное, введите вашу почту!'),
-    type: Yup.string()
-      .oneOf(['Смартфон', 'Ноутбук', 'Планшет', 'ПК'], 'Пожалуйста, выберите тип техники')
-      .required('Это поле обязательное, выберите тип техники!'),
+    type: Yup.string().required('Это поле обязательное, выберите тип техники!'),
     price: Yup.number()
       .typeError('Должно быть числом')
       .min(1, 'Цена должна быть больше 0')
@@ -74,18 +79,13 @@ export const MyForm: React.FC<MyFormProps> = ({ fileUpload = false, header = 'se
 
   return (
     <>
-      {showModal && (
-        <FormSuccessModal
-          description={header === 'sellPage' ? 'sellPage' : 'repairPage'}
-          onClose={() => setShowModal(false)}
-        />
-      )}
+      {showModal && <FormSuccessModal description={header} onClose={() => setShowModal(false)} />}
       <Formik
         initialValues={{
           name: '',
           phone: '',
           email: '',
-          type: '',
+          type: initialSelect,
           price: '',
           title: '',
           comment: '',

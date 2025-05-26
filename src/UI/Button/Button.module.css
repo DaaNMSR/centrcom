@@ -60,7 +60,6 @@
 
 .md {
   padding: 0 12px;
-  gap: 10px;
 }
 
 .md .text {
@@ -81,4 +80,8 @@
 
 .iconLeft {
   margin-right: 12px;
+}
+
+.text {
+  color: inherit;
 }
