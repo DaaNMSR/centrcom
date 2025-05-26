@@ -182,16 +182,18 @@ export const MyForm: React.FC<MyFormProps> = ({
                   options={OPTIONS}
                   label="Тип техники"
                 />
-                <Input
-                  name="price"
-                  value={values.price}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  placeholder="Желаемая сумма"
-                  error={touched.price ? errors.price : undefined}
-                  touched={touched.price}
-                  label="Цена"
-                />
+                {header === 'sellPage' && (
+                  <Input
+                    name="price"
+                    value={values.price}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    placeholder="Желаемая сумма"
+                    error={touched.price ? errors.price : undefined}
+                    touched={touched.price}
+                    label="Цена"
+                  />
+                )}
               </div>
 
               <Input
