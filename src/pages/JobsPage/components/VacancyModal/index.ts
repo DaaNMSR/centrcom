@@ -1,0 +1,1 @@
+export { VacancyModal } from './VacancyModal';
