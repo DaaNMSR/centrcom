@@ -10,7 +10,7 @@
     "preview": "vite preview",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "lint:scss": "stylelint \"**/*.scss\""
+    "stylelint:scss": "stylelint \"**/*.scss\""
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.8.1",
