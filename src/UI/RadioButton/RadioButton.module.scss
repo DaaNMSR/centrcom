@@ -14,10 +14,9 @@
   transition: all 0.2s;
 }
 
-.radioInput:checked+.customRadio {
-  border-color: #FAD12E;
+.radioInput:checked + .customRadio {
   background-color: #FFF;
-  border: none;
+  border: none #FAD12E;
   box-shadow: inset 0 0 0 8px #FAD12E;
 }
 

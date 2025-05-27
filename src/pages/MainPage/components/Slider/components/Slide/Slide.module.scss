@@ -1,5 +1,4 @@
-.mainSlide,
-.slide {
+.mainSlide, .slide {
   min-width: 100%;
   position: relative;
   z-index: 1000;
@@ -38,9 +37,11 @@
 .slideTitle {
   text-transform: uppercase;
   margin-bottom: 8px;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 1.1;
 }
 
-.slideTitle,
 .mainSlideTitle {
   font-weight: 700;
   font-size: 48px;
@@ -78,8 +79,8 @@
   border-radius: 12px;
   line-height: 1;
   transition: 0.2s ease;
-}
 
-.slideButton:hover {
-  opacity: 0.9;
+  &:hover {
+    opacity: 0.9;
+  }
 }

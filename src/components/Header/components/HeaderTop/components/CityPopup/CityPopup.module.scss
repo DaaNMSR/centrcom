@@ -7,9 +7,7 @@
   border-radius: 12px;
   padding: 24px;
   background: #FFF;
-  box-shadow:
-    0px 8px 16px rgba(0, 0, 0, 0.08),
-    0px 0px 4px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08), 0 0 4px rgba(0, 0, 0, 0.04);
 }
 
 .popupWrapper {
@@ -31,18 +29,18 @@
 
 .buttons {
   display: flex;
-  gap: 8px
-}
+  gap: 8px;
 
-.buttons button {
-  width: 100%;
+  button {
+    width: 100%;
+  }
 }
 
 .IconWrapper {
   position: absolute;
   cursor: pointer;
   top: 24px;
-  right: 24px
+  right: 24px;
 }
 
 .selectWrapper {

@@ -37,12 +37,11 @@
   display: flex;
   gap: 8px;
   margin-bottom: 24px;
-}
 
-.detailsWrapper p,
-.detailsWrapper span {
-  font-weight: 400;
-  line-height: 1.5;
+  p, span {
+    font-weight: 400;
+    line-height: 1.5;
+  }
 }
 
 .description {
@@ -54,10 +53,10 @@
   display: flex;
   gap: 12px;
   margin-top: 24px;
-}
 
-.buttons button {
-  width: 100%;
+  button {
+    width: 100%;
+  }
 }
 
 @media (max-width: 1024px) {

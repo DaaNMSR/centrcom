@@ -31,8 +31,7 @@
   gap: 32px;
 }
 
-.basketButton,
-.creditButton {
+.basketButton, .creditButton {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -57,9 +56,9 @@
 .creditButton {
   background-color: #F2F4F7;
   line-height: 1.2;
-}
 
-.creditButton:hover {
-  background-color: #EDEFF3;
-  cursor: pointer;
+  &:hover {
+    background-color: #EDEFF3;
+    cursor: pointer;
+  }
 }
