@@ -1,5 +1,8 @@
 .newProducts {
   margin-bottom: 192px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(316px, 1fr));
+  gap: 32px;
 }
 
 .mainTitle {
@@ -23,12 +26,6 @@
   font-weight: 500;
   margin-right: 10px;
   line-height: 1.3;
-}
-
-.newProducts {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(316px, 1fr));
-  gap: 32px;
 }
 
 .basketButton, .creditButton {

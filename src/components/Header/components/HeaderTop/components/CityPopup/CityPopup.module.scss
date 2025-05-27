@@ -7,7 +7,7 @@
   border-radius: 12px;
   padding: 24px;
   background: #FFF;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08), 0 0 4px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 8px 16px rgb(0 0 0 / 8%), 0 0 4px rgb(0 0 0 / 4%);
 }
 
 .popupWrapper {
@@ -21,7 +21,7 @@
 }
 
 .text {
-  margin: 4px 0 24px 0;
+  margin: 4px 0 24px;
   color: #667085;
   line-height: 1.5;
   font-weight: 400;

@@ -59,7 +59,7 @@
   }
 }
 
-@media (max-width: 1024px) {
+@media (width <= 1024px) {
   .vacanciesWrapper {
     grid-template-columns: 1fr;
     place-items: center;

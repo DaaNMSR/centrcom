@@ -12,13 +12,13 @@
   margin-bottom: 96px;
 }
 
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .popularCategories {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 480px) {
+@media (width <= 480px) {
   .popularCategories {
     grid-template-columns: 1fr;
   }
