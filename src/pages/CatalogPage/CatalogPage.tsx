@@ -1,5 +1,5 @@
 import { Category } from '../../components/Category';
-import styles from './CatalogPage.module.css';
+import styles from './CatalogPage.module.scss';
 import { categories } from './const';
 
 export const CatalogPage = () => {

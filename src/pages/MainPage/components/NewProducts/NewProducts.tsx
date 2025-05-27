@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { newProducts } from './const';
 import arrowIcon from './images/arrowUp-right.svg';
-import styles from './NewProducts.module.css';
+import styles from './NewProducts.module.scss';
 import { ProductCard } from '../../../../components/ProductCard';
 
 export const NewProducts = () => {

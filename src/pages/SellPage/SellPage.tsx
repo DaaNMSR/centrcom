@@ -6,7 +6,7 @@ import { useAppSelector } from '../../redux/hooks';
 import type { RootState } from '../../redux/store';
 import Slide from '../MainPage/components/Slider/components/Slide/Slide';
 import { formCards, sellCards } from './const';
-import styles from './SellPage.module.css';
+import styles from './SellPage.module.scss';
 
 export const SellPage = () => {
   const { slides, backgroundImages } = useAppSelector((state: RootState) => state.slider);

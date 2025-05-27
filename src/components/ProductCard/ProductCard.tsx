@@ -1,5 +1,5 @@
 import { Button } from '../../UI/Button';
-import styles from './ProductCard.module.css';
+import styles from './ProductCard.module.scss';
 import basketIcon from './images/basket-icon.svg';
 
 interface ProductCardProps {

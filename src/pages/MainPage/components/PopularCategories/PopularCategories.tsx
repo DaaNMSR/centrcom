@@ -1,6 +1,6 @@
 import { Category } from '../../../../components/Category';
 import { popularCategories } from './const';
-import styles from './PopularCategories.module.css';
+import styles from './PopularCategories.module.scss';
 
 export const PopularCategories = () => {
   return (

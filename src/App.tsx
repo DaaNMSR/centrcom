@@ -13,7 +13,7 @@ import { VacancyDetailPage } from './pages/JobsPage/components/VacancyDetailPage
 import { CatalogPage } from './pages/CatalogPage';
 import { SellCategory } from './pages/SellPage/components/SellCategory';
 import { CartEmptyPage } from './pages/CartEmptyPage';
-import './App.css';
+import './App.scss';
 import 'leaflet/dist/leaflet.css';
 
 export const App = () => {

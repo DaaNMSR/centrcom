@@ -7,18 +7,19 @@
   margin-bottom: 192px;
 }
 
-.detailTitle,
-.wages {
+.detailTitle {
   font-weight: 700;
   font-size: 36px;
   line-height: 1.2;
 }
 
 .wages {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.2;
   margin-bottom: 24px;
   min-width: 384px;
 }
-
 
 .detailContainer {
   display: flex;
@@ -43,16 +44,11 @@
   gap: 12px;
 }
 
-.detailsItem,
-.location,
-.detailsItemTitle,
-.descriptionLine {
+.detailsItem, .location, .detailsItemTitle, .descriptionLine {
   font-weight: 400;
 }
 
-
-.detailsItem,
-.location {
+.detailsItem, .location {
   line-height: 1.5;
 }
 

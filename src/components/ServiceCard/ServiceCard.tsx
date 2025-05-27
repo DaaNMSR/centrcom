@@ -1,6 +1,6 @@
 import type { Card } from '../../pages/SellPage/const';
 import { Button } from '../../UI/Button';
-import styles from './ServiceCard.module.css';
+import styles from './ServiceCard.module.scss';
 
 interface ServiceCardProps {
   card: Card;

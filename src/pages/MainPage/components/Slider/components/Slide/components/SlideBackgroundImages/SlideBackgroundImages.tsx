@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './SlideBackgroundImages.module.css';
+import styles from './SlideBackgroundImages.module.scss';
 
 interface SlideBackgroundImagesProps {
   topLeft: string;

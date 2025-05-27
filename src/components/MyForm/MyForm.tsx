@@ -1,7 +1,7 @@
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
-import { useState } from 'react';
-import styles from './MyForm.module.css';
+import React, { useState } from 'react';
+import styles from './MyForm.module.scss';
 import { Input } from '../../UI/Input';
 import { Button } from '../../UI/Button';
 import { RadioButton } from '../../UI/RadioButton';

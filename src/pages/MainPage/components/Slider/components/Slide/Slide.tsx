@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SlideBackgroundImages from './components/SlideBackgroundImages/SlideBackgroundImages';
-import styles from './Slide.module.css';
+import styles from './Slide.module.scss';
 
 export interface SlideProps {
   slide: {

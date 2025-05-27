@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../../UI/Button';
 import { vacancies } from './const';
-import styles from './JobsPage.module.css';
+import styles from './JobsPage.module.scss';
 import { useAppDispatch } from '../../redux/hooks';
 import { openModal } from '../../redux/reducers/modalSlice';
 import { VacancyModal } from './components/VacancyModal';

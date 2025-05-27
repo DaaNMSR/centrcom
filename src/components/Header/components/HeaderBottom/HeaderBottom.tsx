@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import logo from './images/logo.svg';
-import styles from './HeaderBottom.module.css';
+import styles from './HeaderBottom.module.scss';
 import { Button } from '../../../../UI/Button';
 import IconBasket from './images/basket.svg';
 import IconBurger from './images/mySvg/BurgerIcon';

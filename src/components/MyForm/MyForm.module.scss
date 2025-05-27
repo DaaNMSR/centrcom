@@ -4,18 +4,18 @@
 
 .formHeader a {
   font-weight: 400;
-}
 
-.formHeader a:first-child {
-  color: #54D061;
-}
+  &:first-child {
+    color: #54D061;
+  }
 
-.formHeader a:nth-child(2) {
-  color: #35ACE1;
-}
+  &:nth-child(2) {
+    color: #35ACE1;
+  }
 
-.formHeader a:last-child {
-  color: #7360F2;
+  &:last-child {
+    color: #7360F2;
+  }
 }
 
 .formHeaderTitle {
@@ -41,18 +41,17 @@
 
 .inputsFirstBlock {
   margin-bottom: 32px;
-}
 
-.inputsFirstBlock>* {
-  min-width: 0;
+  > * {
+    min-width: 0;
+  }
 }
 
 .inputsSecondBlock {
   margin-bottom: 12px;
 }
 
-.inputsFirstBlock,
-.inputsSecondBlock {
+.inputsFirstBlock, .inputsSecondBlock {
   display: flex;
   gap: 12px;
 }
@@ -98,7 +97,7 @@
 
 .radioGroup {
   padding-left: 10px;
-  margin: 22px 0 42px 0;
+  margin: 22px 0 42px;
   display: flex;
   gap: 32px;
 }
@@ -110,10 +109,6 @@
   margin-top: 12px;
 }
 
-.policyText a {
-  color: #2AB8EB
-}
-
 .removeFileButton {
   cursor: pointer;
   position: absolute;
@@ -122,9 +117,9 @@
 }
 
 .textAreaWrapper {
-  margin: 24px 0 32px 0;
-}
+  margin: 24px 0 32px;
 
-.textAreaWrapper input {
-  color: red
+  input {
+    color: red;
+  }
 }

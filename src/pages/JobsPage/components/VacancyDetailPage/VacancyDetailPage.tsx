@@ -1,5 +1,5 @@
 import { Link, useParams } from 'react-router-dom';
-import styles from './VacancyDetailPage.module.css';
+import styles from './VacancyDetailPage.module.scss';
 import { vacancyDescription, vacancyLists } from './const';
 import { PageNotFound } from '../../../../components/PageNotFound';
 import { Button } from '../../../../UI/Button';

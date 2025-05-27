@@ -1,5 +1,5 @@
 import { categoriesPopup } from './const';
-import styles from './CatalogPopup.module.css';
+import styles from './CatalogPopup.module.scss';
 import { useState } from 'react';
 
 export const CatalogPopup = () => {

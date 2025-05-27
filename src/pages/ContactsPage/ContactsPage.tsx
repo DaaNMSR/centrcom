@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { CITIES } from '../../components/Header/components/HeaderTop/components/CityPopup/CityPopup';
 import { Input } from '../../UI/Input';
 import { contactsBeloreck, contactsMagnitogorsk, REQUISITES } from './const';
-import styles from './ContactPage.module.css';
+import styles from './ContactPage.module.scss';
 import { useState } from 'react';
 import { ContactsMap } from './components/ContactsMap';
 

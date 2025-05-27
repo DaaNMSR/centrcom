@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import styles from './HeaderTop.module.css';
+import styles from './HeaderTop.module.scss';
 import locationIcon from './images/location.svg';
 import { useAppDispatch, useAppSelector } from '../../../../redux/hooks';
 import { openPopup } from '../../../../redux/reducers/cityPopupSlice';

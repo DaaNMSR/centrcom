@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../../../redux/hooks';
 import type { RootState } from '../../../../redux/store';
 import { nextSlide } from '../../../../redux/reducers/sliderSlice';
-import styles from './Slider.module.css';
+import styles from './Slider.module.scss';
 import SliderDots from './components/SliderDots/SliderDots';
 import Slide from './components/Slide/Slide';
 

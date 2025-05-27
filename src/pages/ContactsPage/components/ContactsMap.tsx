@@ -1,7 +1,7 @@
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import type { Contact } from '../const';
-import styles from './ContactsMap.module.css';
+import styles from './ContactsMap.module.scss';
 import { useEffect } from 'react';
 
 type ContactsMapProps = {

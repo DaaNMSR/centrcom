@@ -1,6 +1,6 @@
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
-import styles from './VacancyModal.module.css';
+import styles from './VacancyModal.module.scss';
 import { useAppDispatch, useAppSelector } from '../../../../redux/hooks';
 import { closeModal } from '../../../../redux/reducers/modalSlice';
 import { Input } from '../../../../UI/Input';
