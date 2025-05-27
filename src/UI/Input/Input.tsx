@@ -55,7 +55,9 @@ export const Input: React.FC<InputProps> = ({
         </label>
       )}
 
-      <div className={`${wrapperClass} ${!buttonRight ? styles.wrapperWithPadding : ''}`}>
+      <div
+        className={`${wrapperClass} ${!buttonRight && type !== 'textarea' ? styles.wrapperWithPadding : ''}`}
+      >
         {iconLeft && <img src={searchIcon} alt="search" className={styles.img} />}
 
         {type === 'select' ? (
