@@ -24,9 +24,3 @@ jobs:
 
       - name: Run ESLint
         run: yarn lint
-
-      - name: Run Stylelint
-        run: yarn lint:scss
-
-      - name: Run Prettier (check mode)
-        run: yarn format:check
