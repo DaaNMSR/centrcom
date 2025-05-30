@@ -11,7 +11,7 @@ import { useAppDispatch } from '../../../../redux/hooks';
 
 export const VacancyDetailPage = () => {
   const { vacancyId } = useParams();
-  const vacancy = vacancies.find(v => v.id === vacancyId);
+  const vacancy = vacancies.find(v => v.id === Number(vacancyId));
   const dispatch = useAppDispatch();
   if (!vacancy) return <PageNotFound />;
 
@@ -52,7 +52,7 @@ export const VacancyDetailPage = () => {
             : `${vacancy.wages[0]}₽ — ${vacancy.wages[1]}₽`}
         </p>
         <div className={styles.linksBlock}>
-          <Button variant="yellow" onClick={() => dispatch(openModal(vacancy.id))}>
+          <Button variant="yellow" onClick={() => dispatch(openModal(String(vacancy.id)))}>
             Откликнуться
           </Button>
           <Button>

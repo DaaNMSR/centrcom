@@ -3,6 +3,7 @@ import styles from './Breadcrumbs.module.css';
 import chevronActive from './images/chevron-right-active.svg';
 import chevron from './images/chevron-right.svg';
 import { vacancies } from '../../pages/JobsPage/const';
+import { products } from '../../../mock-server/data/product.ts';
 
 const PATH_NAMES: Record<string, string> = {
   '': 'Главная',
@@ -12,6 +13,7 @@ const PATH_NAMES: Record<string, string> = {
   jobs: 'Вакансии',
   contacts: 'Контакты',
   catalog: 'Каталог',
+  products: 'Продукт',
   cartempty: 'Корзина',
   laptop: 'Ноутбук',
   tv: 'Телевизор',
@@ -33,9 +35,14 @@ const PATH_NAMES: Record<string, string> = {
   gamedownolads: 'Закачка игр',
 };
 
-const getVacancyTitleById = (id: string) => {
+const getVacancyTitleById = (id: number) => {
   const vacancy = vacancies.find(v => v.id === id);
   return vacancy?.title;
+};
+
+const getProductTitleById = (id: number) => {
+  const product = products.find(p => p.id === id);
+  return product?.name;
 };
 
 export const Breadcrumbs = () => {
@@ -45,7 +52,18 @@ export const Breadcrumbs = () => {
   const crumbs = pathParts.map((part, index) => {
     const to = '/' + pathParts.slice(0, index + 1).join('/');
     const isLast = index === pathParts.length - 1;
-    const label = PATH_NAMES[part] || (pathParts[index - 1] === 'jobs' ? getVacancyTitleById(part) : part);
+    let label = PATH_NAMES[part];
+
+    if (!label) {
+      const prevPart = pathParts[index - 1];
+
+      if (prevPart === 'jobs') {
+        label = getVacancyTitleById(+part) || part;
+      }
+      if (prevPart === 'products') {
+        label = getProductTitleById(+part) || part;
+      }
+    }
 
     const separatorImg = isLast ? chevronActive : chevron;
 

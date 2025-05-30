@@ -5,6 +5,7 @@ import styles from './JobsPage.module.css';
 import { useAppDispatch } from '../../redux/hooks';
 import { openModal } from '../../redux/reducers/modalSlice';
 import { VacancyModal } from './components/VacancyModal';
+import { Fragment } from 'react';
 
 export const JobsPage = () => {
   const navigate = useNavigate();
@@ -22,11 +23,11 @@ export const JobsPage = () => {
                 : `${vacancy.wages[0]}₽ — ${vacancy.wages[1]}₽`}
             </p>
             <div className={styles.detailsWrapper}>
-              {vacancy.details.map(detail => (
-                <>
+              {vacancy.details.map((detail, i) => (
+                <Fragment key={i}>
                   <p>{detail}</p>
                   {detail !== vacancy.details[vacancy.details.length - 1] && <span>•</span>}
-                </>
+                </Fragment>
               ))}
             </div>
             <p className={styles.description}>{vacancy.description}</p>
@@ -34,7 +35,7 @@ export const JobsPage = () => {
               <Button size="md" onClick={() => navigate(`/jobs/${vacancy.id}`)}>
                 Подробнее
               </Button>
-              <Button size="md" variant="yellow" onClick={() => dispatch(openModal(vacancy.id))}>
+              <Button size="md" variant="yellow" onClick={() => dispatch(openModal(String(vacancy.id)))}>
                 Откликнуться
               </Button>
             </div>
