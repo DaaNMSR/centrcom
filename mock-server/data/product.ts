@@ -6,7 +6,7 @@ export interface Product {
   new: boolean;
   price: string;
   description: string;
-  image: string;
+  image: string[];
   specifications: { title: string; value: string }[];
   availability: {
     pravda: number;
@@ -25,7 +25,13 @@ export const products: Product[] = [
     price: '89 990',
     description:
       'Данная модель могла быть активирована до продажи. Товар является новым и не проходил процедуру привязки к аккаунту Apple ID.Перечисленные выше пункты не влияют на потребительские характеристики, внешний вид товара, функциональность или какие-либо иные свойства продукта.',
-    image: 'http://localhost:3001/public/images/tv.png',
+    image: [
+      'http://localhost:3001/public/images/tv.webp',
+      'http://localhost:3001/public/images/tv-2.webp',
+      'http://localhost:3001/public/images/tv-3.webp',
+      'http://localhost:3001/public/images/tv-4.webp',
+      'http://localhost:3001/public/images/tv-5.webp',
+    ],
     specifications: [
       { title: 'Бренд', value: 'Blackton' },
       { title: 'Диагонъ экрана', value: '27 дюймов' },
@@ -48,7 +54,13 @@ export const products: Product[] = [
     price: '49 990',
     description:
       'Смартфон Apple iPhone 15 128GB (черный) – красивое сочетание передовой оптики, мощного процессора, долгоиграющей батареи и запоминающегося дизайна.',
-    image: 'http://localhost:3001/public/images/iphone.webp',
+    image: [
+      'http://localhost:3001/public/images/iphone.webp',
+      'http://localhost:3001/public/images/iphone-2.webp',
+      'http://localhost:3001/public/images/iphone-3.webp',
+      'http://localhost:3001/public/images/iphone-4.webp',
+      'http://localhost:3001/public/images/iphone-5.webp',
+    ],
     specifications: [
       { title: 'Бренд', value: 'Apple' },
       { title: 'Операционная система ', value: 'Apple iOS' },
@@ -71,7 +83,13 @@ export const products: Product[] = [
     price: '119 990',
     description:
       'Видеокарта Palit GeForce RTX 4070 Dual [NED4070019K9-1047D] с архитектурой Ada Lovelace обеспечивает скорость и производительность при обработке графических ресурсов. Она помогает раскрыть вычислительный потенциал системы при запуске игр и профессиональных программ. Платформа NVIDIA Reflex обеспечивает минимальные задержки и отзывчивость управления, что позволяет получить преимущество над соперником. Технология трассировки лучей повышает насыщенность отражений и глубину теней.',
-    image: 'http://localhost:3001/public/images/gpu.webp',
+    image: [
+      'http://localhost:3001/public/images/gpu.webp',
+      'http://localhost:3001/public/images/gpu-2.webp',
+      'http://localhost:3001/public/images/gpu-3.webp',
+      'http://localhost:3001/public/images/gpu-4.webp',
+      'http://localhost:3001/public/images/gpu-5.webp',
+    ],
     specifications: [
       { title: 'Бренд', value: 'Palit' },
       { title: 'Интерфейс ', value: 'PCI Express x16 4.0' },
@@ -94,7 +112,13 @@ export const products: Product[] = [
     price: '289 990',
     description:
       'Игровой ноутбук Lenovo LOQ 15IAX9 83GS00R9RK — это мощное решение для геймеров, которые ценят производительность и качество. Оснащённый процессором Intel Core i5 12450HX, он обеспечивает отличную скорость работы и многозадачность благодаря 12 потокам и 8 ядрам',
-    image: 'http://localhost:3001/public/images/laptop.webp',
+    image: [
+      'http://localhost:3001/public/images/laptop.webp',
+      'http://localhost:3001/public/images/laptop-2.webp',
+      'http://localhost:3001/public/images/laptop-3.webp',
+      'http://localhost:3001/public/images/laptop-4.webp',
+      'http://localhost:3001/public/images/laptop-5.webp',
+    ],
     specifications: [
       { title: 'Бренд', value: 'Lenovo' },
       { title: 'Процессор', value: 'Intel Core i5' },
