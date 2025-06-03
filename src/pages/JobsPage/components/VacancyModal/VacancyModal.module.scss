@@ -1,10 +1,7 @@
 .modalWrapper {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.17);
+  inset: 0;
+  background: rgb(0 0 0 / 17%);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -34,7 +31,7 @@
 
 .form button {
   width: 100%;
-  margin: 24px 0 12px 0;
+  margin: 24px 0 12px;
 }
 
 .close {
@@ -47,8 +44,8 @@
 .policyText {
   font-weight: 400;
   line-height: 1.5;
-}
 
-.policyText a {
-  color: #2AB8EB
+  a {
+    color: #2AB8EB;
+  }
 }

@@ -1,4 +1,4 @@
-import classes from './Category.module.css';
+import classes from './Category.module.scss';
 
 interface CategoryProps {
   category: { imagePath: string; description: string };

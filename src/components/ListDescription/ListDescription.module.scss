@@ -12,10 +12,10 @@
   align-items: center;
   gap: 12px;
   margin-bottom: 4px;
-}
 
-.listItem:last-child {
-  margin-bottom: 0;
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .listMarker {

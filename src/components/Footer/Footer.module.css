@@ -48,7 +48,7 @@
 }
 
 .link:hover {
-  color: #5b687c;
+  opacity: 0.9;
 }
 
 .bottom {

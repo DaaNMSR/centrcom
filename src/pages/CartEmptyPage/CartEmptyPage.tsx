@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../../UI/Button';
-import styles from './CartEmptyPage.module.css';
+import styles from './CartEmptyPage.module.scss';
 import cardEmpty from './cart-empty.png';
 
 export const CartEmptyPage = () => {

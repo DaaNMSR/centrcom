@@ -16,7 +16,6 @@
 
 .wrapperWithPadding {
   padding: 0 14px;
-  position: relative;
 }
 
 .input {
@@ -48,10 +47,6 @@
   border-color: #FAD12E;
 }
 
-.img {
-  margin-right: 12px;
-}
-
 .textareaWrapper {
   position: relative;
   width: 100%;
@@ -66,18 +61,10 @@
 }
 
 .textarea {
-    min-height: 128px;
-    resize: vertical;
-    width: 100%;
-    padding-top: 14px;
-    margin: 0 4px 4px 0;
-}
-
-.textarea::-webkit-resizer {
-    background-image: url("./images/expand.svg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 16px 16px;
+  resize: vertical;
+  width: 100%;
+  padding-top: 14px;
+  padding-bottom: 77px;
 }
 
 .inputWithPadding {
@@ -88,10 +75,8 @@
   padding: 14px 0;
 }
 
-.selectArrow {
-  position: absolute;
-  right: 12px;
-  pointer-events: none;
+.img {
+  margin-right: 12px;
 }
 
 .error {

@@ -18,13 +18,13 @@
   margin-bottom: 96px;
 }
 
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .categories {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 480px) {
+@media (width <= 480px) {
   .categories {
     grid-template-columns: 1fr;
   }

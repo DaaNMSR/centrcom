@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-import styles from './Breadcrumbs.module.css';
+import styles from './Breadcrumbs.module.scss';
 import chevronActive from './images/chevron-right-active.svg';
 import chevron from './images/chevron-right.svg';
 import { vacancies } from '../../pages/JobsPage/const';

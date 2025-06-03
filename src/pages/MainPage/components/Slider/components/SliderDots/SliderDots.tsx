@@ -1,4 +1,4 @@
-import styles from './SliderDots.module.css';
+import styles from './SliderDots.module.scss';
 
 interface SliderDotsProps {
   currentSlide: number;

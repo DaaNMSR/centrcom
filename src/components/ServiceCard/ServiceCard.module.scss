@@ -7,20 +7,20 @@
   border: 1px solid #F2F4F7;
   border-radius: 16px;
   overflow: hidden;
-}
 
-.card::before {
-  content: "";
-  position: absolute;
-  width: 224px;
-  height: 224px;
-  background: var(--bg-color);
-  border-radius: 50%;
-  filter: blur(200px);
-  bottom: 0;
-  right: 0;
-  transform: translate(50%, 50%);
-  z-index: 0;
+  &::before {
+    content: "";
+    position: absolute;
+    width: 224px;
+    height: 224px;
+    background: var(--bg-color);
+    border-radius: 50%;
+    filter: blur(200px);
+    bottom: 0;
+    right: 0;
+    transform: translate(50%, 50%);
+    z-index: 0;
+  }
 }
 
 .title {
