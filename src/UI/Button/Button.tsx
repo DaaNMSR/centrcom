@@ -31,14 +31,14 @@ export const Button: React.FC<ButtonProps> = ({
     <button className={buttonClass} disabled={disabled} {...props}>
       {iconLeft &&
         (typeof iconLeft === 'string' ? (
-          <img className={styles.iconLeft} src={iconLeft} />
+          <img className={styles.iconLeft} src={iconLeft} alt="icon" />
         ) : (
           <div className={styles.iconLeft}>{iconLeft}</div>
         ))}
       <span className={styles.text}>{children}</span>
       {iconRight &&
         (typeof iconRight === 'string' ? (
-          <img className={styles.iconRight} src={iconRight} />
+          <img className={styles.iconRight} src={iconRight} alt="icon" />
         ) : (
           <div className={styles.iconRight}>{iconRight}</div>
         ))}

@@ -17,7 +17,9 @@ export const ProductCard = ({ product }: ProductCardProps) => {
 
   return (
     <div className={styles.productCard} onClick={handleProductCardClick}>
-      <img src={product.image} alt={product.name} />
+      <div className={styles.productImageWrapper}>
+        <img src={product.image[0]} alt={product.name} className={styles.productImage} />
+      </div>
       <div className={styles.content}>
         <h4 className={styles.title}>{product.name}</h4>
         <p className={styles.price}>{product.price} ₽</p>

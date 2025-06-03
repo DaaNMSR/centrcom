@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import arrowIcon from './images/arrowUp-right.svg';
-import styles from './NewProducts.module.css';
+import styles from './NewProducts.module.scss';
 import { products } from '../../../../../mock-server/data/product.ts';
 import { ProductCard } from '../../../../components/ProductCard';
 

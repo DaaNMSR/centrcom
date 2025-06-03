@@ -11,35 +11,38 @@
 
 .yellow {
   background-color: #FAD12E;
+
+  &:hover {
+    background-color: #F8C90E;
+  }
 }
 
 .gray {
   background-color: #F2F4F7;
+
+  &:hover {
+    background-color: #E4E7EB;
+  }
 }
 
 .dark {
   background-color: #101828;
-  color: #FFF;
+
+  .text {
+    color: #FFF;
+  }
+
+  &:hover {
+    background-color: #1F2735;
+  }
 }
 
 .ghost {
   background-color: transparent;
-}
 
-.yellow:hover {
-  background-color: #F8C90E;
-}
-
-.gray:hover {
-  background-color: #E4E7EB;
-}
-
-.dark:hover {
-  background-color: #1F2735;
-}
-
-.ghost:hover {
-  background-color: #F7F0F0;
+  &:hover {
+    background-color: #F7F0F0;
+  }
 }
 
 .disabled {
