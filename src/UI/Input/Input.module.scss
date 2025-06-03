@@ -12,10 +12,6 @@
   border-radius: 12px;
   transition: all 0.2s ease;
   padding-left: 14px;
-
-  &:focus-within, &:hover {
-    border-color: #FAD12E;
-  }
 }
 
 .wrapperWithPadding {
@@ -29,17 +25,26 @@
 
 .label {
   margin-left: 4px;
+}
+
+.label,
+.helperText {
   font-size: 14px;
   font-weight: 400;
   line-height: 1;
 }
 
 .helperText {
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1;
   margin-left: 16px;
   color: #667085;
+}
+
+.wrapper:focus-within {
+  border-color: #FAD12E;
+}
+
+.wrapper:hover {
+  border-color: #FAD12E;
 }
 
 .textareaWrapper {
@@ -49,10 +54,10 @@
 
 .select {
   color: #667085;
+}
 
-  &.active {
-    color: #101828;
-  }
+.select.active {
+  color: #101828;
 }
 
 .textarea {
@@ -92,10 +97,8 @@
   margin: 4px 4px 4px 0;
 }
 
-input:-webkit-autofill {
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
   box-shadow: 0 0 0 30px white inset;
-
-  &:hover, &:focus {
-    box-shadow: 0 0 0 30px white inset;
-  }
 }
