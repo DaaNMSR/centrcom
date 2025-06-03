@@ -52,26 +52,26 @@
   gap: 8px;
   font-size: 14px;
   font-weight: 400;
-}
 
-.sm .text {
-  padding: 9px 0;
+  .text {
+    padding: 9px 0;
+  }
 }
 
 .md {
   padding: 0 12px;
-}
 
-.md .text {
-  padding: 14px 0;
+  .text {
+    padding: 14px 0;
+  }
 }
 
 .lg {
   padding: 0 14px;
-}
 
-.lg .text {
-  padding: 18px 0;
+  .text {
+    padding: 18px 0;
+  }
 }
 
 .iconRight {
@@ -80,8 +80,4 @@
 
 .iconLeft {
   margin-right: 12px;
-}
-
-.text {
-  color: inherit;
 }

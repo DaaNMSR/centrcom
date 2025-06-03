@@ -1,7 +1,7 @@
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
-import { useState } from 'react';
-import styles from './MyForm.module.css';
+import React, { useState } from 'react';
+import styles from './MyForm.module.scss';
 import { Input } from '../../UI/Input';
 import { Button } from '../../UI/Button';
 import { RadioButton } from '../../UI/RadioButton';
@@ -182,16 +182,18 @@ export const MyForm: React.FC<MyFormProps> = ({
                   options={OPTIONS}
                   label="Тип техники"
                 />
-                <Input
-                  name="price"
-                  value={values.price}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  placeholder="Желаемая сумма"
-                  error={touched.price ? errors.price : undefined}
-                  touched={touched.price}
-                  label="Цена"
-                />
+                {header === 'sellPage' && (
+                  <Input
+                    name="price"
+                    value={values.price}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    placeholder="Желаемая сумма"
+                    error={touched.price ? errors.price : undefined}
+                    touched={touched.price}
+                    label="Цена"
+                  />
+                )}
               </div>
 
               <Input
@@ -280,8 +282,6 @@ export const MyForm: React.FC<MyFormProps> = ({
                         className={styles.removeFileButton}
                         onClick={() => {
                           setPreview(null);
-                          setFieldValue('file', null);
-                          setFieldTouched('file', false);
                         }}
                       >
                         <img src={CloseIcon} alt="удалить фото" />

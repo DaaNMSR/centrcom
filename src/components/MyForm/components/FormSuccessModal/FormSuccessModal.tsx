@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { Button } from '../../../../UI/Button';
 import CloseIcon from '../../../Header/components/HeaderBottom/images/mySvg/CloseIcon';
-import styles from './FormSuccessModal.module.css';
+import styles from './FormSuccessModal.module.scss';
 
 interface FormSuccessModalProps {
   description?: 'sellPage' | 'repairPage' | 'jobsPage';

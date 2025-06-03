@@ -1,5 +1,5 @@
 import type { FormCardsInterface } from '../../pages/SellPage/const';
-import styles from './FormCards.module.css';
+import styles from './FormCards.module.scss';
 
 interface FormCardsProps {
   formCards: FormCardsInterface;

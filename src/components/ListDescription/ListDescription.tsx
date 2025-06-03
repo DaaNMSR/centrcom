@@ -1,5 +1,5 @@
 import type { List } from '../../pages/CreditPage/const';
-import styles from './ListDescription.module.css';
+import styles from './ListDescription.module.scss';
 
 interface ListDescriptionProps {
   listContent: List;

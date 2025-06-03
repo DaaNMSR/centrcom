@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Input.module.css';
+import styles from './Input.module.scss';
 import searchIcon from './images/searchIcon.svg';
 import arrowIcon from './images/arrowdown.svg';
 
@@ -55,7 +55,9 @@ export const Input: React.FC<InputProps> = ({
         </label>
       )}
 
-      <div className={`${wrapperClass} ${!buttonRight ? styles.wrapperWithPadding : ''}`}>
+      <div
+        className={`${wrapperClass} ${!buttonRight && type !== 'textarea' ? styles.wrapperWithPadding : ''}`}
+      >
         {iconLeft && <img src={searchIcon} alt="search" className={styles.img} />}
 
         {type === 'select' ? (
