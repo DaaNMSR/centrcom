@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 import { Button } from '../../../../UI/Button';
 import CloseIcon from '../../../Header/components/HeaderBottom/images/mySvg/CloseIcon';
 import styles from './FormSuccessModal.module.scss';
@@ -11,17 +11,23 @@ interface FormSuccessModalProps {
 export const FormSuccessModal: React.FC<FormSuccessModalProps> = ({ description = 'sellPage', onClose }) => {
   const modalRef = useRef<HTMLDivElement>(null);
 
-  const handleOutsideClick = (e: MouseEvent) => {
-    if (modalRef.current && !modalRef.current.contains(e.target as Node)) {
-      onClose();
-    }
-  };
+  const handleOutsideClick = useCallback(
+    (e: MouseEvent) => {
+      if (modalRef.current && !modalRef.current.contains(e.target as Node)) {
+        onClose();
+      }
+    },
+    [onClose],
+  );
 
-  const handleEsc = (e: KeyboardEvent) => {
-    if (e.key === 'Escape') {
-      onClose();
-    }
-  };
+  const handleEsc = useCallback(
+    (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    },
+    [onClose],
+  );
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -36,7 +42,7 @@ export const FormSuccessModal: React.FC<FormSuccessModalProps> = ({ description 
       document.removeEventListener('mousedown', handleOutsideClick);
       document.removeEventListener('keydown', handleEsc);
     };
-  }, [onClose]);
+  }, [handleEsc, handleOutsideClick]);
 
   return (
     <div className={styles.formModalWrapper}>

@@ -7,7 +7,7 @@ import { Input } from '../../../../UI/Input';
 import { Button } from '../../../../UI/Button';
 import CloseIcon from '../../../../components/Header/components/HeaderBottom/images/mySvg/CloseIcon';
 import { Link } from 'react-router-dom';
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { FormSuccessModal } from '../../../../components/MyForm/components/FormSuccessModal';
 
 const validationSchema = Yup.object().shape({
@@ -27,17 +27,23 @@ export const VacancyModal = () => {
 
   const modalRef = useRef<HTMLDivElement>(null);
 
-  const handleOutsideClick = (e: MouseEvent) => {
-    if (modalRef.current && !modalRef.current.contains(e.target as Node)) {
-      dispatch(closeModal());
-    }
-  };
+  const handleOutsideClick = useCallback(
+    (e: MouseEvent) => {
+      if (modalRef.current && !modalRef.current.contains(e.target as Node)) {
+        dispatch(closeModal());
+      }
+    },
+    [dispatch],
+  );
 
-  const handleEsc = (e: KeyboardEvent) => {
-    if (e.key === 'Escape') {
-      dispatch(closeModal());
-    }
-  };
+  const handleEsc = useCallback(
+    (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        dispatch(closeModal());
+      }
+    },
+    [dispatch],
+  );
 
   useEffect(() => {
     if (isOpen) {
@@ -61,7 +67,7 @@ export const VacancyModal = () => {
       document.removeEventListener('mousedown', handleOutsideClick);
       document.removeEventListener('keydown', handleEsc);
     };
-  }, [isOpen]);
+  }, [handleEsc, handleOutsideClick, isOpen]);
 
   if ((!isOpen || !vacancyId) && isSuccessOpen) {
     return <FormSuccessModal description="jobsPage" onClose={() => setIsSuccessOpen(false)} />;
