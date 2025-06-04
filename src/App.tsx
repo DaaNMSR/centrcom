@@ -1,4 +1,4 @@
-import { Header } from './components/Header/Header';
+import { Header } from './components/Header';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { SellPage } from './pages/SellPage';
 import { CreditPage } from './pages/CreditPage';
@@ -13,9 +13,9 @@ import { VacancyDetailPage } from './pages/JobsPage/components/VacancyDetailPage
 import { CatalogPage } from './pages/CatalogPage';
 import { SellCategory } from './pages/SellPage/components/SellCategory';
 import { CartEmptyPage } from './pages/CartEmptyPage';
+import { ProductPage } from './pages/ProductPage';
 import './App.scss';
 import 'leaflet/dist/leaflet.css';
-import { ProductPage } from './pages/ProductPage/ProductPage.tsx';
 
 export const App = () => {
   const location = useLocation();

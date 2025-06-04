@@ -36,17 +36,19 @@
   line-height: 1.2;
   margin-top: 32px;
   margin-bottom: 16px;
-}
-.title:first-child {
-  margin-top: 0;
+
+  &:first-child {
+    margin-top: 0;
+  }
 }
 
 .link {
   display: block;
   line-height: 1;
-}
-.link:hover {
-  color: #5b687c;
+
+  &:hover {
+    color: #5b687c;
+  }
 }
 
 .bottom {
@@ -67,5 +69,3 @@
 .copyright {
   font-weight: 400;
 }
-
-/*# sourceMappingURL=Footer.module.css.map */

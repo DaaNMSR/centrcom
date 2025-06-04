@@ -19,7 +19,7 @@ const HeaderTop = () => {
   useEffect(() => {
     const timeout = setTimeout(() => dispatch(openPopup()), 1500);
     return () => clearTimeout(timeout);
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className={styles.headerTop}>

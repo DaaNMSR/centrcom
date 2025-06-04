@@ -1,15 +1,11 @@
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../../../../../redux/hooks';
 import { closePopup, changeCurrentCity, setCity } from '../../../../../../redux/reducers/cityPopupSlice';
 import CloseIcon from './images/CloseIcon';
 import styles from './CityPopup.module.scss';
 import { Button } from '../../../../../../UI/Button';
 import { Input } from '../../../../../../UI/Input';
-
-export const CITIES = [
-  { value: 'Магнитогорск', label: 'Магнитогорск' },
-  { value: 'Белорецк', label: 'Белорецк' },
-];
+import { CITIES } from './const.ts';
 
 const CityPopup = () => {
   const dispatch = useAppDispatch();
@@ -17,7 +13,10 @@ const CityPopup = () => {
   const currentCity = useAppSelector(state => state.cityPopup.currentCity);
   const [selectedCity, setSelectedCity] = useState(currentCity);
 
-  const handleClosePopup = () => dispatch(closePopup());
+  const handleClosePopup = useCallback(() => {
+    dispatch(closePopup());
+  }, [dispatch]);
+
   const handleChangeCurrentCity = () => dispatch(changeCurrentCity());
   const handleConfirmCity = () => dispatch(setCity(selectedCity));
 
@@ -33,7 +32,7 @@ const CityPopup = () => {
     return () => {
       document.removeEventListener('click', handleClickOutside);
     };
-  }, []);
+  }, [handleClosePopup]);
 
   return (
     <div className={styles.popup} ref={popupRef}>
