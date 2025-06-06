@@ -1,19 +1,25 @@
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import styles from './VacancyDetailPage.module.scss';
-import { vacancyDescription, vacancyLists } from './const';
 import { PageNotFound } from '../../../../components/PageNotFound';
 import { Button } from '../../../../UI/Button';
 import { ListDescription } from '../../../../components/ListDescription';
-import { vacancies } from '../../const';
 import { VacancyModal } from '../VacancyModal';
 import { openModal } from '../../../../redux/reducers/modalSlice';
 import { useAppDispatch } from '../../../../redux/hooks';
+import { useGetVacancyDetailsByIdQuery } from '../../../../redux/api/vacanciesDetailsApi.ts';
+import { useGetVacanciesShortQuery } from '../../../../redux/api/vacanciesShortApi.ts';
 
 export const VacancyDetailPage = () => {
   const { vacancyId } = useParams();
-  const vacancy = vacancies.find(v => v.id === Number(vacancyId));
   const dispatch = useAppDispatch();
-  if (!vacancy) return <PageNotFound />;
+
+  const { data: vacancy, isLoading, isError } = useGetVacancyDetailsByIdQuery(Number(vacancyId));
+  const { data: vacanciesShort } = useGetVacanciesShortQuery();
+
+  if (isLoading) return <p>Загрузка...</p>;
+  if (isError || !vacancy) return <PageNotFound />;
+
+  const vacancyWages = vacanciesShort?.find(v => v.id === Number(vacancyId));
 
   return (
     <div className={styles.container}>
@@ -22,7 +28,7 @@ export const VacancyDetailPage = () => {
         <div>
           <h3 className={styles.subTitle}>Детали</h3>
           <ul className={styles.detailsList}>
-            {Object.entries(vacancyDescription.details).map(([label, value]) => (
+            {Object.entries(vacancy.details).map(([label, value]) => (
               <li key={label} className={styles.detailsItem}>
                 <span className={styles.detailsItemTitle}>{label}:</span> <span>{value}</span>
               </li>
@@ -31,37 +37,36 @@ export const VacancyDetailPage = () => {
         </div>
         <div>
           <h3 className={styles.subTitle}>Расположение</h3>
-          <span className={styles.location}>{vacancyDescription.location}</span>
+          <span className={styles.location}>{vacancy.location}</span>
         </div>
         <div>
           <h3 className={styles.subTitle}>Описание</h3>
-          {vacancyDescription.description.map((line, i) => (
+          {vacancy.description.map((line, i) => (
             <p className={styles.descriptionLine} key={i}>
               {line}
             </p>
           ))}
         </div>
-        {vacancyLists.map((list, index) => (
-          <ListDescription key={index} listContent={list} />
-        ))}
+        <ListDescription listContent={{ mainTitle: vacancy.mainTitle, lists: vacancy.lists }} />
+        <ListDescription listContent={{ mainTitle: vacancy.subTitle, lists: vacancy.subLists }} />
       </div>
       <div className={styles.moreDetails}>
         <p className={styles.wages}>
-          {vacancy.wages.length === 1
-            ? `${vacancy.wages[0]}₽`
-            : `${vacancy.wages[0]}₽ — ${vacancy.wages[1]}₽`}
+          {vacancyWages?.wages?.length === 1
+            ? `${vacancyWages.wages[0]} ₽`
+            : `${vacancyWages?.wages?.[0]} — ${vacancyWages?.wages?.[1]} ₽`}
         </p>
         <div className={styles.linksBlock}>
           <Button variant="yellow" onClick={() => dispatch(openModal(String(vacancy.id)))}>
             Откликнуться
           </Button>
           <Button>
-            <Link to="https://www.avito.ru/" target="_blank">
+            <a href="https://www.avito.ru/" target="_blank" rel="noopener noreferrer">
               Вакансия на авито
-            </Link>
+            </a>
           </Button>
           <Button variant="ghost">
-            <Link to="tel:8(906)899-99-89">8(906)899-99-89</Link>
+            <a href="tel:8(906)899-99-89">8(906)899-99-89</a>
           </Button>
         </div>
       </div>
