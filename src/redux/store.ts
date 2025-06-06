@@ -3,6 +3,7 @@ import sliderReducer from '../redux/reducers/sliderSlice';
 import cityPopupReducer from '../redux/reducers/cityPopupSlice';
 import modalReducer from '../redux/reducers/modalSlice';
 import { productsApi } from './api/productsApi.ts';
+import { categoriesApi } from './api/categoriesApi.ts';
 
 export const store = configureStore({
   reducer: {
@@ -10,8 +11,10 @@ export const store = configureStore({
     cityPopup: cityPopupReducer,
     modal: modalReducer,
     [productsApi.reducerPath]: productsApi.reducer,
+    [categoriesApi.reducerPath]: categoriesApi.reducer,
   },
-  middleware: getDefaultMiddleware => getDefaultMiddleware().concat(productsApi.middleware),
+  middleware: getDefaultMiddleware =>
+    getDefaultMiddleware().concat(productsApi.middleware).concat(categoriesApi.middleware),
 });
 
 export type RootState = ReturnType<typeof store.getState>;
