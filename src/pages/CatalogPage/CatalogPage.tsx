@@ -8,7 +8,7 @@ export const CatalogPage = () => {
       <h3 className={styles.mainTitle}>Каталог</h3>
       <div className={styles.categories}>
         {categories.map(category => (
-          <Category category={category} />
+          <Category category={category} key={category.description} />
         ))}
       </div>
     </div>
