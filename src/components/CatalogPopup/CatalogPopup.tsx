@@ -1,27 +1,34 @@
-import { categoriesPopup } from './const';
 import styles from './CatalogPopup.module.scss';
 import { useState } from 'react';
+import {
+  useGetCategoryNamesImagesQuery,
+  useGetSubCategoriesByNameQuery,
+} from '../../redux/api/categoriesApi.ts';
 
 export const CatalogPopup = () => {
-  const [currentCategory, setCurrentCategory] = useState(0);
+  const [currentCategory, setCurrentCategory] = useState<string | null>('Телевизоры и аудиотехника');
+  const { data: categories } = useGetCategoryNamesImagesQuery();
+  const { data: selectedCategoryDetails } = useGetSubCategoriesByNameQuery(currentCategory ?? '', {
+    skip: !currentCategory,
+  });
 
   return (
     <div className={styles.popupWrapper}>
       <div className={styles.sidebar}>
-        {categoriesPopup.map((category, index) => (
-          <div key={index} className={styles.category} onClick={() => setCurrentCategory(index)}>
-            <img src={category.imgPath} alt={category.title} className={styles.categoryImg} />
-            <span>{category.title}</span>
+        {categories?.map(({ name, image }) => (
+          <div key={name} className={styles.category} onClick={() => setCurrentCategory(name)}>
+            <img src={image} alt={name} className={styles.categoryImg} />
+            <span>{name}</span>
           </div>
         ))}
       </div>
       <div className={styles.subCategories}>
-        {categoriesPopup[currentCategory].subTitles.map((sub, i) => (
+        {selectedCategoryDetails?.subcategories.map((sub, i) => (
           <div key={i} className={styles.columnSubCategory}>
-            <h4>{sub.subTitle}</h4>
+            <h4>{sub.name}</h4>
             <ul>
-              {sub.subDescription.map((item, id) => (
-                <li key={id}>{item}</li>
+              {sub.subSubcategories.map((item, id) => (
+                <li key={id}>{`${item.name} (${item.quantity})`}</li>
               ))}
             </ul>
           </div>

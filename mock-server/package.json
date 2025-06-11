@@ -4,6 +4,7 @@
   "main": "index.ts",
   "license": "MIT",
   "dependencies": {
+    "@faker-js/faker": "^9.8.0",
     "cors": "^2.8.5",
     "express": "^5.1.0"
   },
