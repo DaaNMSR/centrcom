@@ -2,7 +2,7 @@ import styles from './Footer.module.scss';
 import logo from '../Header/components/HeaderBottom/images/logo.svg';
 import visa from './images/visa.svg';
 import masterCard from './images/MasterCard.svg';
-import mir from './images/mir.svg';
+import mir from './images/MIR.svg';
 import { Link } from 'react-router-dom';
 import { footerCatalog, footerContacts, footerNavigation } from './const';
 
