@@ -20,6 +20,10 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
+      - name: Install dependencies for mock-server
+        working-directory: ./mock-server
+        run: yarn install --frozen-lockfile
+
       - name: Build project
         run: yarn build
 
