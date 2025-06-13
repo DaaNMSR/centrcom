@@ -8,6 +8,7 @@ import IconClose from './images/mySvg/CloseIcon';
 import { useState } from 'react';
 import { Input } from '../../../../UI/Input';
 import { CatalogPopup } from '../../../CatalogPopup';
+import { featureFlags } from '../../../../../featureFlags.ts';
 
 const HeaderBottom = () => {
   const [isToggled, setIsToggled] = useState(false);
@@ -24,10 +25,16 @@ const HeaderBottom = () => {
       <Button variant="yellow" iconRight={isToggled ? <IconClose /> : <IconBurger />} onClick={handleClick}>
         Каталог
       </Button>
-      <Input iconLeft={true} placeholder="Поиск..." buttonRight={<Button size="md">Найти</Button>} />
-      <Button variant="gray" iconRight={IconBasket}>
-        Корзина
-      </Button>
+
+      {featureFlags.mainSearchInput && (
+        <Input iconLeft={true} placeholder="Поиск..." buttonRight={<Button size="md">Найти</Button>} />
+      )}
+
+      {featureFlags.basketButton && (
+        <Button variant="gray" iconRight={IconBasket}>
+          Корзина
+        </Button>
+      )}
       {isToggled && <CatalogPopup />}
     </div>
   );

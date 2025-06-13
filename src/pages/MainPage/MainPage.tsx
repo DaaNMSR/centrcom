@@ -3,6 +3,7 @@ import { NewProducts } from './components/NewProducts/NewProducts';
 import { PopularCategories } from './components/PopularCategories/PopularCategories';
 import Slider from './components/Slider/Slider';
 import styles from './MainPage.module.scss';
+import { featureFlags } from '../../../featureFlags.ts';
 
 export const MainPage = () => {
   return (
@@ -10,7 +11,7 @@ export const MainPage = () => {
       <main>
         <Slider />
         <Cards />
-        <PopularCategories />
+        {featureFlags.popularCategories && <PopularCategories />}
         <NewProducts />
       </main>
     </div>
