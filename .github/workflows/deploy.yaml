@@ -32,9 +32,27 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-      - name: Create remote folder if not exists
-        run: ssh -o StrictHostKeyChecking=no root@89.111.171.148 "mkdir -p /var/www/fo"
+      - name: Create remote folders if not exist
+        run: |
+          ssh -o StrictHostKeyChecking=no root@89.111.171.148 << 'ENDSSH'
+            mkdir -p /var/www/fo
+            mkdir -p /var/www/mock-server
+          ENDSSH
 
       - name: Upload build to server
         run: rsync -avz --delete ./dist/ root@89.111.171.148:/var/www/fo/
 
+      - name: Upload mock-server to server
+        run: rsync -avz ./mock-server/ root@89.111.171.148:/var/www/mock-server/
+
+      - name: Install and start mock-server on server
+        run: |
+          ssh -o StrictHostKeyChecking=no root@89.111.171.148 << 'ENDSSH'
+            cd /var/www/mock-server
+            yarn install --frozen-lockfile
+            yarn build
+            npm install -g pm2
+            pm2 delete mock-server || true
+            pm2 start yarn --name mock-server -- start
+            pm2 save
+          ENDSSH
