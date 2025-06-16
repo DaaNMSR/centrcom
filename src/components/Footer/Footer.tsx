@@ -7,10 +7,6 @@ import { Link } from 'react-router-dom';
 import { footerCatalog, footerContacts, footerNavigation } from './const';
 
 export const Footer = () => {
-  const handleClickToList = () => {
-    scroll(0, 0);
-  };
-
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
@@ -23,7 +19,7 @@ export const Footer = () => {
               <h4 className={styles.title}>Каталог</h4>
               <div className={styles.column}>
                 {footerCatalog.map(link => (
-                  <Link key={link.text} to={link.to} className={styles.link} onClick={handleClickToList}>
+                  <Link key={link.text} to={link.to} className={styles.link}>
                     {link.text}
                   </Link>
                 ))}
@@ -31,7 +27,7 @@ export const Footer = () => {
               <h4 className={styles.title}>Навигация</h4>
               <div className={styles.column}>
                 {footerNavigation.map(link => (
-                  <Link key={link.text} to={link.to} className={styles.link} onClick={handleClickToList}>
+                  <Link key={link.text} to={link.to} className={styles.link}>
                     {link.text}
                   </Link>
                 ))}

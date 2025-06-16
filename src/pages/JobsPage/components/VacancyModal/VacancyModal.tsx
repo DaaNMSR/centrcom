@@ -59,7 +59,6 @@ export const VacancyModal = () => {
   useEffect(() => {
     if (!isOpen) return;
 
-    window.scrollTo(0, 0);
     document.addEventListener('mousedown', handleOutsideClick);
     document.addEventListener('keydown', handleEsc);
 
