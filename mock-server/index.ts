@@ -3,12 +3,13 @@ import path from 'path';
 import cors from 'cors';
 import fs from 'fs';
 import dotenv from 'dotenv';
-dotenv.config();
-
 import productRouter from './routes/productsRouter';
 import catalogCategoriesRouter from './routes/catalogCategoriesRouter';
 import vacanciesShortRouter from './routes/vacanciesShort';
 import vacanciesDetailsRouter from './routes/vacanciesDetails';
+
+const envFile = process.env.NODE_ENV === 'production' ? '.env' : '.env.local';
+dotenv.config({ path: envFile });
 
 const PROTOCOL = process.env.PROTOCOL || 'http';
 const HOST = process.env.HOST || 'localhost';
@@ -48,6 +49,6 @@ if (PROTOCOL === 'https') {
   });
 } else {
   app.listen(PORT, HOST, () => {
-    console.log(`Mock API: https://${HOST}:${PORT}`);
+    console.log(`Mock API: http://${HOST}:${PORT}`);
   });
 }

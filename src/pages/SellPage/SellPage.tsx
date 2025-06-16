@@ -13,7 +13,6 @@ export const SellPage = () => {
 
   const navigate = useNavigate();
   const handleCardClick = (category: string) => {
-    scroll(0, 0);
     navigate(`/sell/${category}`);
   };
   return (
