@@ -1,5 +1,5 @@
 import Cards from './components/Cards/Cards';
-import { NewProducts } from './components/NewProducts/NewProducts';
+import { ProductSection } from '../../components/ProductSection';
 import { PopularCategories } from './components/PopularCategories/PopularCategories';
 import Slider from './components/Slider/Slider';
 import styles from './MainPage.module.scss';
@@ -12,7 +12,7 @@ export const MainPage = () => {
         <Slider />
         <Cards />
         {featureFlags.popularCategories && <PopularCategories />}
-        <NewProducts />
+        <ProductSection />
       </main>
     </div>
   );

@@ -3,7 +3,7 @@ import { PageNotFound } from '../../components/PageNotFound';
 import { Link, useParams } from 'react-router-dom';
 import styles from './ProductPage.module.scss';
 import { Button } from '../../UI/Button';
-import { NewProducts } from '../MainPage/components/NewProducts/NewProducts.tsx';
+import { ProductSection } from '../../components/ProductSection';
 
 export const ProductPage = () => {
   const { id } = useParams();
@@ -67,7 +67,7 @@ export const ProductPage = () => {
           ))}
         </div>
       </div>
-      <NewProducts />
+      <ProductSection />
     </div>
   );
 };

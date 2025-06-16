@@ -15,6 +15,7 @@ import { SellCategory } from './pages/SellPage/components/SellCategory';
 import { CartEmptyPage } from './pages/CartEmptyPage';
 import { ProductPage } from './pages/ProductPage';
 import { ScrollToTop } from './components/ScrollToTop';
+import { CategoryPage } from './pages/CategoryPage';
 import './App.scss';
 import 'leaflet/dist/leaflet.css';
 
@@ -34,6 +35,7 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/catalog" element={<CatalogPage />} />
+        <Route path="/category/:id" element={<CategoryPage />} />
         <Route path="/products/:id" element={<ProductPage />} />
         <Route path="/sell" element={<SellPage />} />
         <Route path="/sell/:category" element={<SellCategory />} />
