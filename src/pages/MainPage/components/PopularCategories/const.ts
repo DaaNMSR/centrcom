@@ -8,13 +8,14 @@ import playstationCategories from './images/playstation-categories.png';
 interface popularCategories {
   imagePath: string;
   description: string;
+  shortCategory: string;
 }
 
 export const popularCategories: popularCategories[] = [
-  { imagePath: tvCategories, description: 'Телевизоры и аудиотехника' },
-  { imagePath: laptopCategories, description: 'Ноутбуки и компьютеры' },
-  { imagePath: phoneCategories, description: 'Смартфоны и гаджеты' },
-  { imagePath: playstationCategories, description: 'Игровые приставки и игры' },
-  { imagePath: accessoriesCategories, description: 'Акссесуары' },
-  { imagePath: printerCategories, description: 'Принтеры и МФУ' },
+  { imagePath: tvCategories, description: 'Телевизоры и аудиотехника', shortCategory: 'tv' },
+  { imagePath: laptopCategories, description: 'Ноутбуки и компьютеры', shortCategory: 'laptops' },
+  { imagePath: phoneCategories, description: 'Смартфоны и гаджеты', shortCategory: 'phones' },
+  { imagePath: playstationCategories, description: 'Игровые приставки и игры', shortCategory: 'games' },
+  { imagePath: accessoriesCategories, description: 'Акссесуары', shortCategory: 'accessories' },
+  { imagePath: printerCategories, description: 'Принтеры и МФУ', shortCategory: 'printers' },
 ];

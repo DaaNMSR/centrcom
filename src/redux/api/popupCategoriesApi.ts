@@ -1,8 +1,8 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import type { CatalogCategory } from '../../../mock-server/data/catalogCategories.ts';
+import type { CatalogCategory } from '../../../mock-server/data/popupCategories.ts';
 
-export const categoriesApi = createApi({
-  reducerPath: 'categoriesApi',
+export const popupCategoriesApi = createApi({
+  reducerPath: 'popupCategoriesApi',
   baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3001/' }),
   endpoints: builder => ({
     getCategoryNames: builder.query<{ name: string }[], void>({ query: () => `categories/names` }),
@@ -16,4 +16,4 @@ export const categoriesApi = createApi({
 });
 
 export const { useGetCategoryNamesQuery, useGetSubCategoriesByNameQuery, useGetCategoryNamesImagesQuery } =
-  categoriesApi;
+  popupCategoriesApi;

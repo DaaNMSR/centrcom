@@ -28,7 +28,7 @@ const generateSubcategories = (count: number, subSubCount: number): Subcategory[
     subSubcategories: generateSubSubcategories(subSubCount),
   }));
 
-export const catalogCategories: CatalogCategory[] = [
+export const popupCategories: CatalogCategory[] = [
   {
     image: 'http://localhost:3001/public/images/tv.svg',
     name: 'Телевизоры и аудиотехника',

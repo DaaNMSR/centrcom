@@ -1,4 +1,4 @@
-export interface Product {
+export interface FullProduct {
   id: number;
   name: string;
   article: string;
@@ -13,9 +13,11 @@ export interface Product {
     kosorotova: number;
   };
   creditAvailable: boolean;
+  createdAt?: string;
+  popularity?: number;
 }
 
-export const products: Product[] = [
+export const newProducts: FullProduct[] = [
   {
     id: 1,
     name: 'Телевизор Smart 4K BQ 50SU03B',

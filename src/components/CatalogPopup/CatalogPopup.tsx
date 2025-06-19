@@ -3,7 +3,7 @@ import { useState } from 'react';
 import {
   useGetCategoryNamesImagesQuery,
   useGetSubCategoriesByNameQuery,
-} from '../../redux/api/categoriesApi.ts';
+} from '../../redux/api/popupCategoriesApi.ts';
 
 export const CatalogPopup = () => {
   const [currentCategory, setCurrentCategory] = useState<string | null>('Телевизоры и аудиотехника');

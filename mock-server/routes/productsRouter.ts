@@ -1,21 +1,21 @@
 import { Router, Request, Response } from 'express';
-import { products, Product } from '../data/product';
+import { newProducts, FullProduct } from '../data/newProduct';
 
-const productRouter = Router();
+const newProductsRouter = Router();
 
-productRouter.get('/', (req: Request, res: Response<Product[]>): void => {
-  res.json(products);
+newProductsRouter.get('/', (req: Request, res: Response<FullProduct[]>): void => {
+  res.json(newProducts);
 });
 
-productRouter.get(
+newProductsRouter.get(
   '/:id',
-  (req: Request<{ id: string }>, res: Response<Product | { message: string }>): void => {
+  (req: Request<{ id: string }>, res: Response<FullProduct | { message: string }>): void => {
     const id = Number(req.params.id);
 
-    const product = products.find(p => p.id === id);
+    const product = newProducts.find(p => p.id === id);
 
     if (!product) {
-      res.status(404).json({ message: 'Product not found' });
+      res.status(404).json({ message: 'NewProduct not found' });
       return;
     }
 
@@ -23,4 +23,4 @@ productRouter.get(
   },
 );
 
-export default productRouter;
+export default newProductsRouter;

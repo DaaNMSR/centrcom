@@ -1,0 +1,12 @@
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:32px;
+  margin-bottom: 24px;
+}
+
+.productList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}

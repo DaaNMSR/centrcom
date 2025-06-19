@@ -1,41 +1,83 @@
 .productCard {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   overflow: hidden;
   background-color: #FFF;
   border-radius: 12px;
   border: 1px solid #F2F4F7;
+
+  &.grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &.list {
+    width: 100%;
+  }
 }
 
 .productImageWrapper {
-  padding: 12px 12px 0;
-  width: 100%;
+  &.grid {
+    padding: 12px 12px 0;
+  }
+
+  &.list {
+    flex-shrink: 0;
+    width: 192px;
+    height: 192px;
+    overflow: hidden;
+  }
 }
 
 .productImage {
-  width: 100%;
-  height: 304px;
   object-fit: contain;
+
+  &.grid {
+    height: 304px;
+  }
 }
 
 .content {
   display: flex;
   flex-direction: column;
-  padding: 12px;
+  width: 100%;
+
+  &.grid {
+    padding: 12px;
+  }
+
+  &.list {
+    padding: 24px;
+    justify-content: space-between;
+    flex-grow: 1;
+  }
 }
 
 .title {
   font-size: 18px;
   line-height: 1.5;
-  margin-bottom: 12px;
+
+  &.grid {
+    margin-bottom: 12px;
+  }
 }
 
 .price {
   font-size: 18px;
   line-height: 1.2;
   font-weight: 600;
-  margin-bottom: 24px;
+
+  &.grid {
+    margin-bottom: 24px;
+  }
+
+  &.list {
+    font-size: 24px;
+  }
+}
+
+.buttonTop,
+.buttonBottom {
+  width: 100%;
 }
 
 .buttonTop {
@@ -43,7 +85,13 @@
   margin-bottom: 12px;
 }
 
-.buttonTop,
-.buttonBottom {
-  width: 100%;
+.headerList {
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttonGroupList {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
 }

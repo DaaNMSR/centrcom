@@ -3,9 +3,11 @@ import sliderReducer from '../redux/reducers/sliderSlice';
 import cityPopupReducer from '../redux/reducers/cityPopupSlice';
 import modalReducer from '../redux/reducers/modalSlice';
 import { productsApi } from './api/productsApi.ts';
-import { categoriesApi } from './api/categoriesApi.ts';
+import { popupCategoriesApi } from './api/popupCategoriesApi.ts';
 import { vacanciesShortApi } from './api/vacanciesShortApi.ts';
 import { vacanciesDetailsApi } from './api/vacanciesDetailsApi.ts';
+import { mainCategoriesApi } from './api/mainCategoriesApi.ts';
+import { categoryProductsApi } from './api/categoryProductsApi.ts';
 
 export const store = configureStore({
   reducer: {
@@ -13,16 +15,20 @@ export const store = configureStore({
     cityPopup: cityPopupReducer,
     modal: modalReducer,
     [productsApi.reducerPath]: productsApi.reducer,
-    [categoriesApi.reducerPath]: categoriesApi.reducer,
+    [popupCategoriesApi.reducerPath]: popupCategoriesApi.reducer,
     [vacanciesShortApi.reducerPath]: vacanciesShortApi.reducer,
     [vacanciesDetailsApi.reducerPath]: vacanciesDetailsApi.reducer,
+    [mainCategoriesApi.reducerPath]: mainCategoriesApi.reducer,
+    [categoryProductsApi.reducerPath]: categoryProductsApi.reducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware()
       .concat(productsApi.middleware)
-      .concat(categoriesApi.middleware)
+      .concat(popupCategoriesApi.middleware)
       .concat(vacanciesShortApi.middleware)
-      .concat(vacanciesDetailsApi.middleware),
+      .concat(vacanciesDetailsApi.middleware)
+      .concat(mainCategoriesApi.middleware)
+      .concat(categoryProductsApi.middleware),
 });
 
 export type RootState = ReturnType<typeof store.getState>;

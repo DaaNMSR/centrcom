@@ -1,0 +1,25 @@
+.sorting {
+  display: flex;
+  gap: 12px;
+}
+
+.sortingIcons {
+  justify-content: center;
+  align-items: center;
+  padding: 4px;
+  display: flex;
+  border: 1px solid rgb(242 244 247 / 100%);
+  border-radius: 12px;
+}
+
+.sortingButtons {
+  padding: 4px;
+  display: flex;
+  border: 1px solid rgb(242 244 247 / 100%);
+  border-radius: 12px;
+}
+
+.sortingIcons button {
+  width: 44px;
+  height: 44px;
+}
