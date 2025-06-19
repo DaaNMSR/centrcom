@@ -35,7 +35,7 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/catalog" element={<CatalogPage />} />
-        <Route path="/category/:id" element={<CategoryPage />} />
+        <Route path="/category/:shortCategory" element={<CategoryPage />} />
         <Route path="/products/:id" element={<ProductPage />} />
         <Route path="/sell" element={<SellPage />} />
         <Route path="/sell/:category" element={<SellCategory />} />

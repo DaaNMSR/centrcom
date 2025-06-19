@@ -3,7 +3,7 @@ import styles from './Breadcrumbs.module.scss';
 import chevronActive from './images/chevron-right-active.svg';
 import chevron from './images/chevron-right.svg';
 import { vacancies } from '../../pages/JobsPage/const';
-import { products } from '../../../mock-server/data/product.ts';
+import { newProducts } from '../../../mock-server/data/newProduct.ts';
 
 const PATH_NAMES: Record<string, string> = {
   '': 'Главная',
@@ -41,7 +41,7 @@ const getVacancyTitleById = (id: number) => {
 };
 
 const getProductTitleById = (id: number) => {
-  const product = products.find(p => p.id === id);
+  const product = newProducts.find(p => p.id === id);
   return product?.name;
 };
 

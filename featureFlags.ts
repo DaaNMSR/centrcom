@@ -1,6 +1,6 @@
 export const featureFlags = {
-  mainSearchInput: false,
-  popularCategories: false,
-  basketButton: false,
-  newProductsArrow: false,
+  mainSearchInput: true,
+  popularCategories: true,
+  basketButton: true,
+  productSectionArrow: true,
 };
