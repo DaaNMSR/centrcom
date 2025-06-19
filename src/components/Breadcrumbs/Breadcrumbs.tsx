@@ -2,8 +2,8 @@ import { Link, useLocation } from 'react-router-dom';
 import styles from './Breadcrumbs.module.scss';
 import chevronActive from './images/chevron-right-active.svg';
 import chevron from './images/chevron-right.svg';
-import { vacancies } from '../../pages/JobsPage/const';
 import { newProducts } from '../../../mock-server/data/newProduct.ts';
+import { useGetVacanciesShortQuery } from '../../redux/api/vacanciesShortApi.ts';
 
 const PATH_NAMES: Record<string, string> = {
   '': 'Главная',
@@ -35,17 +35,18 @@ const PATH_NAMES: Record<string, string> = {
   gamedownolads: 'Закачка игр',
 };
 
-const getVacancyTitleById = (id: number) => {
-  const vacancy = vacancies.find(v => v.id === id);
-  return vacancy?.title;
-};
-
 const getProductTitleById = (id: number) => {
   const product = newProducts.find(p => p.id === id);
   return product?.name;
 };
 
 export const Breadcrumbs = () => {
+  const { data: vacanciesShort } = useGetVacanciesShortQuery();
+  const getVacancyTitleById = (id: number) => {
+    const vacancy = vacanciesShort?.find(v => v.id === id);
+    return vacancy?.title;
+  };
+
   const location = useLocation();
   const pathParts = location.pathname.split('/').filter(Boolean);
 
