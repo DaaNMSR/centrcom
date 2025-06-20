@@ -19,22 +19,34 @@ const categories = [
   'Разное',
 ];
 
-const generateProduct = (id: number): FullProduct => ({
+const singularCategoryNames = [
+  'Телевизор',
+  'Смартфон',
+  'Ноутбук',
+  'Игровая приставка',
+  'Аксессуар',
+  'Принтер',
+  'Инструмент',
+  'Фотоаппарат',
+  'Товар для дома',
+  'Предмет мебели',
+  'Климатическая техника',
+  'Товар для красоты',
+  'Хобби-товар',
+  'Автотовар',
+  'Продукт',
+];
+
+const generateProduct = (id: number, category: string): FullProduct => ({
   id,
-  name: faker.commerce.productName(),
+  name: `${category} ${faker.commerce.productName()}`,
   article: faker.string.alphanumeric(10).toUpperCase(),
   hit: faker.datatype.boolean(),
   popularity: faker.number.int({ min: 0, max: 1000 }),
   new: faker.datatype.boolean(),
   price: faker.commerce.price({ min: 1000, max: 200000, dec: 0 }),
   description: faker.commerce.productDescription(),
-  image: [
-    faker.image.urlLoremFlickr({ width: 290, height: 304, category: 'technics' }),
-    faker.image.urlLoremFlickr({ width: 290, height: 304, category: 'technics' }),
-    faker.image.urlLoremFlickr({ width: 290, height: 304, category: 'technics' }),
-    faker.image.urlLoremFlickr({ width: 290, height: 304, category: 'technics' }),
-    faker.image.urlLoremFlickr({ width: 290, height: 304, category: 'technics' }),
-  ],
+  image: Array.from({ length: 5 }, () => `https://picsum.photos/seed/${faker.string.uuid()}/290/304`),
   specifications: [
     { title: faker.commerce.productMaterial(), value: faker.commerce.productAdjective() },
     { title: faker.commerce.productMaterial(), value: faker.commerce.productAdjective() },
@@ -53,10 +65,11 @@ const generateProduct = (id: number): FullProduct => ({
 export const categoryProducts: Record<string, FullProduct[]> = {};
 
 let currentId = faker.number.int({ min: 1000, max: 10000 });
-categories.forEach(category => {
+categories.forEach((category, index) => {
   const count = 210;
+  const singular = singularCategoryNames[index];
   categoryProducts[category] = [];
   for (let i = 0; i < count; i++) {
-    categoryProducts[category].push(generateProduct(currentId++));
+    categoryProducts[category].push(generateProduct(currentId++, singular));
   }
 });

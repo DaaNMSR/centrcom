@@ -9,6 +9,7 @@ import vacanciesShortRouter from './routes/vacanciesShort';
 import vacanciesDetailsRouter from './routes/vacanciesDetails';
 import mainCategoriesRouter from './routes/mainCategoriesRouter';
 import categoryProductsRouter from './routes/categoryProductsRouter';
+import filtersSideBarRouter from './routes/filtersSideBarRouter';
 
 const envFile = process.env.NODE_ENV === 'production' ? '.env' : '.env.local';
 dotenv.config({ path: envFile });
@@ -36,6 +37,7 @@ app.use('/products', productRouter);
 app.use('/categories', catalogCategoriesRouter);
 app.use('/vacancies-short', vacanciesShortRouter);
 app.use('/vacancies-details', vacanciesDetailsRouter);
+app.use('/filters', filtersSideBarRouter);
 
 app.get('/', (req, res) => {
   res.send('Mock server is running');
