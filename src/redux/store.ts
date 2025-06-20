@@ -8,6 +8,7 @@ import { vacanciesShortApi } from './api/vacanciesShortApi.ts';
 import { vacanciesDetailsApi } from './api/vacanciesDetailsApi.ts';
 import { mainCategoriesApi } from './api/mainCategoriesApi.ts';
 import { categoryProductsApi } from './api/categoryProductsApi.ts';
+import { filtersApi } from './api/filtersApi.ts';
 
 export const store = configureStore({
   reducer: {
@@ -20,6 +21,7 @@ export const store = configureStore({
     [vacanciesDetailsApi.reducerPath]: vacanciesDetailsApi.reducer,
     [mainCategoriesApi.reducerPath]: mainCategoriesApi.reducer,
     [categoryProductsApi.reducerPath]: categoryProductsApi.reducer,
+    [filtersApi.reducerPath]: filtersApi.reducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware()
@@ -28,7 +30,8 @@ export const store = configureStore({
       .concat(vacanciesShortApi.middleware)
       .concat(vacanciesDetailsApi.middleware)
       .concat(mainCategoriesApi.middleware)
-      .concat(categoryProductsApi.middleware),
+      .concat(categoryProductsApi.middleware)
+      .concat(filtersApi.middleware),
 });
 
 export type RootState = ReturnType<typeof store.getState>;
