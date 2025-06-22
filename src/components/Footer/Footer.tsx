@@ -4,7 +4,8 @@ import visa from './images/visa.svg';
 import masterCard from './images/MasterCard.svg';
 import mir from './images/MIR.svg';
 import { Link } from 'react-router-dom';
-import { footerCatalog, footerContacts, footerNavigation } from './const';
+import { footerContacts, footerNavigation } from './const';
+import { categoriesPaths } from '../../../mock-server/data/categoryProducts.ts';
 
 export const Footer = () => {
   return (
@@ -14,16 +15,18 @@ export const Footer = () => {
           <Link to="/">
             <img src={logo} alt="логотип" className={styles.logo} />
           </Link>
+
           <div>
             <div className={styles.columns}>
               <h4 className={styles.title}>Каталог</h4>
               <div className={styles.column}>
-                {footerCatalog.map(link => (
-                  <Link key={link.text} to={link.to} className={styles.link}>
-                    {link.text}
+                {Object.entries(categoriesPaths).map(([key, value]) => (
+                  <Link key={key} to={`catalog/${key}`} className={styles.link}>
+                    {value}
                   </Link>
                 ))}
               </div>
+
               <h4 className={styles.title}>Навигация</h4>
               <div className={styles.column}>
                 {footerNavigation.map(link => (
@@ -32,6 +35,7 @@ export const Footer = () => {
                   </Link>
                 ))}
               </div>
+
               <h4 className={styles.title}>Контакты</h4>
               <div className={styles.column}>
                 {footerContacts.map(link => (
