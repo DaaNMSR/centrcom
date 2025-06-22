@@ -21,11 +21,6 @@
   margin-bottom: 96px;
 }
 
-.productInfoContainer {
-  max-width: 632px;
-  min-height: 657px;
-}
-
 .productImage {
   width: 632px;
   height: 632px;
@@ -34,129 +29,14 @@
   justify-content: center;
 }
 
-.productName {
-  font-size: 18px;
-  font-weight: 600;
-  line-height: 1.2;
-  margin-bottom: 6px;
-}
 
-.productArticle {
-  color: rgb(102 112 133 / 100%);
-  line-height: 1.5;
-}
 
-.productTags {
-  display: flex;
-  gap: 8px;
-  margin: 12px 0 32px;
-}
 
-.productTags p {
-  padding: 6px 8px;
-  color: #FFF;
-  font-weight: 600;
-  font-size: 12px;
-  border-radius: 12px;
-  line-height: 1;
-}
 
-.productNewTag {
-  background-color: rgb(42 184 235 / 100%);
-}
 
-.productHitTag {
-  background-color: rgb(218 50 137 / 100%);
-}
 
-.productBlock {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 32px;
-}
 
-.productButtons {
-  display: flex;
-  gap: 12px;
-}
 
-.productPrice {
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 1.2;
-}
 
-.productPriceCredit {
-  font-weight: 400;
-  color: rgb(102 112 133 / 100%);
-  line-height: 1.5;
-}
 
-.availability {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-bottom: 32px;
-}
 
-.availabilityTitle {
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 1.2;
-}
-
-.availabilityLink {
-  color: rgb(250 209 46 / 100%);
-  line-height: 0.6;
-}
-
-.availabilityLinkDisable {
-  cursor:default;
-  pointer-events: none;
-  color:rgb(242 244 247 / 100%);
-}
-
-.productDescription {
-  font-weight: 400;
-  margin-bottom: 32px;
-  line-height: 1.5;
-}
-
-.productSpecificationsTitle {
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 1.2;
-  margin-bottom: 24px;
-}
-
-.productSpecifications {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-bottom: 12px;
-}
-
-.productSpecification {
-  font-weight: 400;
-  line-height: 1.5;
-}
-
-.productSpecifications:last-child {
-  padding-bottom: 0;
-}
-
-.productSpecificationsDots {
-  flex: 1;
-  position: relative;
-  height: 1em;
-  overflow: hidden;
-}
-
-.productSpecificationsDots::before {
-  content: '.............................................................................................................................................................................................................................';
-  color: rgb(208 213 221 / 100%);
-  white-space: nowrap;
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-}

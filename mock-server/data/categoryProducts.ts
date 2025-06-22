@@ -1,5 +1,5 @@
 import { faker } from '@faker-js/faker/locale/ru';
-import { FullProduct } from './newProducts';
+import type { FullProduct } from './newProducts';
 
 export const categories = [
   'Телевизоры и аудиотехника',
