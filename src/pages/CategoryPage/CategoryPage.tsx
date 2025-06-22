@@ -53,7 +53,11 @@ export const CategoryPage = () => {
         <FiltersSideBar />
         <main className={styles.mainContent}>
           <AppliedFilters />
-          <ProductList categoryProducts={categoryProducts} viewType={viewType} />
+          <ProductList
+            categoryProducts={categoryProducts}
+            viewType={viewType}
+            shortCategory={shortCategory}
+          />
           <PaginationControls
             limit={limit}
             onPageChange={setPage}

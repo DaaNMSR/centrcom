@@ -1,13 +1,20 @@
-import { useGetProductByIdQuery } from '../../redux/api/productsApi.ts';
 import { PageNotFound } from '../../components/PageNotFound';
 import { Link, useParams } from 'react-router-dom';
 import styles from './ProductPage.module.scss';
 import { Button } from '../../UI/Button';
 import { ProductSection } from '../../components/ProductSection';
+import { useGetProductByIdQuery } from '../../redux/api/categoryProductsApi.ts';
+import { skipToken } from '@reduxjs/toolkit/query';
+import { useGetNewProductsQuery } from '../../redux/api/newProductsApi.ts';
 
 export const ProductPage = () => {
-  const { id } = useParams();
-  const { data: product, error, isLoading } = useGetProductByIdQuery(Number(id));
+  const { shortCategory, id } = useParams<{ shortCategory: string; id: string }>();
+  const { data: newProducts } = useGetNewProductsQuery();
+  const {
+    data: product,
+    error,
+    isLoading,
+  } = useGetProductByIdQuery(shortCategory && id ? { shortCategory, id } : skipToken);
 
   if (isLoading) return <div>Loading...</div>;
   if (error) return <PageNotFound />;
@@ -67,7 +74,7 @@ export const ProductPage = () => {
           ))}
         </div>
       </div>
-      <ProductSection />
+      <ProductSection products={newProducts ?? []} />
     </div>
   );
 };

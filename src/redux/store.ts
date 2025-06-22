@@ -2,7 +2,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import sliderReducer from '../redux/reducers/sliderSlice';
 import cityPopupReducer from '../redux/reducers/cityPopupSlice';
 import modalReducer from '../redux/reducers/modalSlice';
-import { productsApi } from './api/productsApi.ts';
+import { newProductsApi } from './api/newProductsApi.ts';
 import { popupCategoriesApi } from './api/popupCategoriesApi.ts';
 import { vacanciesShortApi } from './api/vacanciesShortApi.ts';
 import { vacanciesDetailsApi } from './api/vacanciesDetailsApi.ts';
@@ -15,7 +15,7 @@ export const store = configureStore({
     slider: sliderReducer,
     cityPopup: cityPopupReducer,
     modal: modalReducer,
-    [productsApi.reducerPath]: productsApi.reducer,
+    [newProductsApi.reducerPath]: newProductsApi.reducer,
     [popupCategoriesApi.reducerPath]: popupCategoriesApi.reducer,
     [vacanciesShortApi.reducerPath]: vacanciesShortApi.reducer,
     [vacanciesDetailsApi.reducerPath]: vacanciesDetailsApi.reducer,
@@ -25,7 +25,7 @@ export const store = configureStore({
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware()
-      .concat(productsApi.middleware)
+      .concat(newProductsApi.middleware)
       .concat(popupCategoriesApi.middleware)
       .concat(vacanciesShortApi.middleware)
       .concat(vacanciesDetailsApi.middleware)

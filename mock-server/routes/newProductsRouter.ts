@@ -1,10 +1,11 @@
 import { Router, Request, Response } from 'express';
-import { newProducts, FullProduct } from '../data/newProduct';
+import { newProducts, FullProduct } from '../data/newProducts';
 
 const newProductsRouter = Router();
 
 newProductsRouter.get('/', (req: Request, res: Response<FullProduct[]>): void => {
-  res.json(newProducts);
+  const allProducts = Object.values(newProducts).flat();
+  res.json(allProducts);
 });
 
 newProductsRouter.get(
@@ -12,7 +13,9 @@ newProductsRouter.get(
   (req: Request<{ id: string }>, res: Response<FullProduct | { message: string }>): void => {
     const id = Number(req.params.id);
 
-    const product = newProducts.find(p => p.id === id);
+    const allProducts = Object.values(newProducts).flat();
+
+    const product = allProducts.find(p => p.id === id);
 
     if (!product) {
       res.status(404).json({ message: 'NewProduct not found' });
