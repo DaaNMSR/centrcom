@@ -1,6 +1,6 @@
 import { Router, Request, Response } from 'express';
 import { categoryProducts } from '../data/categoryProducts';
-import { FullProduct } from '../data/newProduct';
+import { FullProduct } from '../data/newProducts';
 
 const categoryProductsRouter = Router();
 
@@ -74,6 +74,32 @@ categoryProductsRouter.get(
 
     res.setHeader('X-Total-Count', sortedProducts.length.toString());
     res.json(paginatedProducts);
+  },
+);
+
+categoryProductsRouter.get(
+  '/:shortCategory/id/:id',
+  (req: Request<{ shortCategory: string; id: string }>, res: Response<FullProduct | { message: string }>) => {
+    const { shortCategory, id } = req.params;
+    const category = categoryMap[shortCategory.toLowerCase()];
+    if (!category) {
+      res.status(404).json({ message: 'Категория не найдена' });
+      return;
+    }
+
+    const products = categoryProducts[category];
+    if (!products) {
+      res.status(404).json({ message: 'Товары в категории не найдены' });
+      return;
+    }
+
+    const product = products.find(p => String(p.id) === id);
+    if (!product) {
+      res.status(404).json({ message: 'Товар не найден' });
+      return;
+    }
+
+    res.json(product);
   },
 );
 

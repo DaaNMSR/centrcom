@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import type { FullProduct } from '../../../mock-server/data/newProduct.ts';
+import type { FullProduct } from '../../../mock-server/data/newProducts.ts';
 import type { SortBy } from '../../pages/CategoryPage/components/SortPanel/SortPanel.tsx';
 
 export const categoryProductsApi = createApi({
@@ -37,10 +37,10 @@ export const categoryProductsApi = createApi({
       },
     }),
 
-    getProductById: builder.query<FullProduct, string>({
-      query: id => `/product/${id}`,
+    getProductById: builder.query<FullProduct, { shortCategory: string; id: string }>({
+      query: ({ shortCategory, id }) => `/category/${shortCategory}/id/${id}`,
     }),
   }),
 });
 
-export const { useGetCategoryProductsQuery } = categoryProductsApi;
+export const { useGetCategoryProductsQuery, useGetProductByIdQuery } = categoryProductsApi;

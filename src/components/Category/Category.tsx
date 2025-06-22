@@ -8,7 +8,7 @@ interface CategoryProps {
 
 export const Category: React.FC<CategoryProps> = ({ category }) => {
   return (
-    <Link to={`/category/${category.shortCategory}`}>
+    <Link to={`/catalog/${category.shortCategory}`}>
       <div key={category.imagePath} className={classes.category}>
         <img
           src={category.imagePath}

@@ -2,19 +2,21 @@ import { Button } from '../../UI/Button';
 import styles from './ProductCard.module.scss';
 import basketIcon from './images/basket-icon.svg';
 import { useNavigate } from 'react-router-dom';
-import type { FullProduct } from '../../../mock-server/data/newProduct.ts';
+import type { FullProduct } from '../../../mock-server/data/newProducts.ts';
 import React from 'react';
 
 export interface ProductCardProps {
   product: FullProduct;
   variant?: 'grid' | 'list';
+  shortCategory: string;
 }
 
-export const ProductCard: React.FC<ProductCardProps> = ({ product, variant = 'grid' }) => {
+export const ProductCard: React.FC<ProductCardProps> = ({ product, variant = 'grid', shortCategory }) => {
   const navigate = useNavigate();
   const variantClass = styles[variant];
+
   const handleProductCardClick = () => {
-    navigate(`/products/${product.id}`);
+    navigate(`/catalog/${shortCategory}/id/${product.id}`);
   };
   const stopPropagation = (e: React.MouseEvent) => {
     e.stopPropagation();

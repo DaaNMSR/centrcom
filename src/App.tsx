@@ -35,8 +35,8 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/catalog" element={<CatalogPage />} />
-        <Route path="/category/:shortCategory" element={<CategoryPage />} />
-        <Route path="/products/:id" element={<ProductPage />} />
+        <Route path="/catalog/:shortCategory" element={<CategoryPage />} />
+        <Route path="/catalog/:shortCategory/id/:id" element={<ProductPage />} />
         <Route path="/sell" element={<SellPage />} />
         <Route path="/sell/:category" element={<SellCategory />} />
         <Route path="/credit" element={<CreditPage />} />

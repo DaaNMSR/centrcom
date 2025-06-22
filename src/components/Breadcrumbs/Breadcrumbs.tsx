@@ -2,7 +2,7 @@ import { Link, useLocation } from 'react-router-dom';
 import styles from './Breadcrumbs.module.scss';
 import chevronActive from './images/chevron-right-active.svg';
 import chevron from './images/chevron-right.svg';
-import { newProducts } from '../../../mock-server/data/newProduct.ts';
+import { newProducts } from '../../../mock-server/data/newProducts.ts';
 import { useGetVacanciesShortQuery } from '../../redux/api/vacanciesShortApi.ts';
 
 const PATH_NAMES: Record<string, string> = {
@@ -33,6 +33,20 @@ const PATH_NAMES: Record<string, string> = {
   firmwareconsoles: 'Прошивка консолей (PS/PS4/XBOX360)',
   repairgamepads: 'Ремонт геймпадов и замена стиков',
   gamedownolads: 'Закачка игр',
+  phones: 'Смартфоны и гаджеты',
+  laptops: 'Ноутбуки и компьютеры',
+  games: 'Игровые приставки и игры',
+  accessories: 'Аксессуары',
+  printers: 'Принтеры и МФУ',
+  tools: 'Инструменты',
+  photo: 'Фототехника',
+  home: 'Товары для дома',
+  furniture: 'Мебель',
+  climate: 'Климатическое оборудование',
+  beauty: 'Красота и здоровье',
+  hobby: 'Хобби и отдых',
+  car: 'Для автомобиля',
+  other: 'Разное',
 };
 
 const getProductTitleById = (id: number) => {
