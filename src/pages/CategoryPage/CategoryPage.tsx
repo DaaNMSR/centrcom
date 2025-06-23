@@ -2,7 +2,7 @@ import styles from './CategoryPage.module.scss';
 import { useGetCategoryProductsQuery } from '../../redux/api/categoryProductsApi.ts';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { categories, getPageOptions, getTotalPages, limit } from './const.ts';
+import { categories, getPageOptions, getTotalPages, limit, removeFilter } from './const.ts';
 import { FiltersSideBar } from './components/FiltersSideBar';
 import { ProductList } from './components/ProductList';
 import { AppliedFilters } from './components/AppliedFilters';
@@ -15,9 +15,9 @@ import type { SortBy } from './components/SortPanel/SortPanel.tsx';
 export const CategoryPage = () => {
   const [page, setPage] = useState(1);
   const [sortBy, setSortBy] = useState<SortBy>('popular');
+  const [selectedFilters, setSelectedFilters] = useState<{ [filterName: string]: string[] }>({});
   const [viewType, setViewType] = useState<'grid' | 'list'>('grid');
   const { shortCategory } = useParams<{ shortCategory: keyof typeof categories }>();
-
   const {
     data: categoryProducts,
     isLoading,
@@ -50,9 +50,14 @@ export const CategoryPage = () => {
         <SortPanel viewType={viewType} onViewChange={setViewType} sortBy={sortBy} onSortChange={setSortBy} />
       </div>
       <div className={styles.content}>
-        <FiltersSideBar />
+        <FiltersSideBar selectedFilters={selectedFilters} setSelectedFilters={setSelectedFilters} />
         <main className={styles.mainContent}>
-          <AppliedFilters />
+          <AppliedFilters
+            selectedFilters={selectedFilters}
+            resetFilters={() => setSelectedFilters({})}
+            removeFilter={(filterName, value) => removeFilter(setSelectedFilters, filterName, value)}
+          />
+
           <ProductList
             categoryProducts={categoryProducts}
             viewType={viewType}

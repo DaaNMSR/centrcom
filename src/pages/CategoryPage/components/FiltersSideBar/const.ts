@@ -1,3 +1,32 @@
+import React from 'react';
+
+export const createCheckboxChangeHandler = (
+  setPendingFilters: React.Dispatch<React.SetStateAction<{ [key: string]: string[] }>>,
+) => {
+  return (filterName: string, value: string) => {
+    setPendingFilters(prev => {
+      const current = new Set(prev[filterName] || []);
+
+      if (current.has(value)) {
+        current.delete(value);
+      } else {
+        current.add(value);
+      }
+
+      return { ...prev, [filterName]: Array.from(current) };
+    });
+  };
+};
+
+export const createApplyHandler = (
+  setSelectedFilters: React.Dispatch<React.SetStateAction<{ [key: string]: string[] }>>,
+  pendingFilters: { [key: string]: string[] },
+) => {
+  return () => {
+    setSelectedFilters(pendingFilters);
+  };
+};
+
 export const filterNamesMap: Record<string, string> = {
   availability: 'Наличие в магазине',
   brand: 'Бренд',
