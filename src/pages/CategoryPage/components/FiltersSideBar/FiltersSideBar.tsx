@@ -3,16 +3,26 @@ import { useGetCategoryFiltersQuery } from '../../../../redux/api/filtersApi';
 import { useParams } from 'react-router-dom';
 import { Input } from '../../../../UI/Input';
 import { Button } from '../../../../UI/Button';
-import { filterNamesMap } from './const.ts';
+import { createApplyHandler, createCheckboxChangeHandler, filterNamesMap } from './const.ts';
+import React, { useEffect } from 'react';
 
-interface FilterValue {
-  name: string;
-  count: number;
+interface FiltersSideBarProps {
+  selectedFilters: { [key: string]: string[] };
+  setSelectedFilters: React.Dispatch<React.SetStateAction<{ [key: string]: string[] }>>;
 }
 
-export const FiltersSideBar = () => {
+export const FiltersSideBar: React.FC<FiltersSideBarProps> = ({ selectedFilters, setSelectedFilters }) => {
+  const [pendingFilters, setPendingFilters] = React.useState<{ [key: string]: string[] }>({});
+
   const { shortCategory } = useParams<{ shortCategory: string }>();
   const { data: filters, error, isLoading } = useGetCategoryFiltersQuery(shortCategory);
+
+  const handleCheckboxChange = createCheckboxChangeHandler(setPendingFilters);
+  const handleApply = createApplyHandler(setSelectedFilters, pendingFilters);
+
+  useEffect(() => {
+    setPendingFilters(selectedFilters);
+  }, [selectedFilters]);
 
   if (isLoading) return <aside className={styles.sidebar}>Загрузка фильтров...</aside>;
   if (error || !filters) return <aside className={styles.sidebar}>Ошибка загрузки фильтров</aside>;
@@ -30,8 +40,8 @@ export const FiltersSideBar = () => {
         <div className={styles.filterSection}>
           <h3 className={styles.sectionTitle}>Диапазон цен, ₽</h3>
           <div className={styles.priceRange}>
-            <Input name="priceMin" placeholder="0" />
-            <Input name="priceMax" placeholder="1000" />
+            <Input name="priceMin" placeholder="0" type="number" />
+            <Input name="priceMax" placeholder="1000" type="number" />
             <Button variant="yellow" size="md">
               Ок
             </Button>
@@ -42,9 +52,19 @@ export const FiltersSideBar = () => {
           <div key={filterName} className={styles.filterSection}>
             <h3 className={styles.sectionTitle}>{filterNamesMap[filterName]}</h3>
             <div>
-              {(filterValues as FilterValue[]).map(option => (
+              {(
+                filterValues as {
+                  name: string;
+                  count: number;
+                }[]
+              ).map(option => (
                 <label key={option.name} className={styles.optionLabel}>
-                  <input type="checkbox" className={styles.optionCheckbox} onChange={() => {}} />
+                  <input
+                    type="checkbox"
+                    className={styles.optionCheckbox}
+                    onChange={() => handleCheckboxChange(filterName, option.name)}
+                    checked={pendingFilters[filterName]?.includes(option.name) || false}
+                  />
                   <span className={styles.customCheckbox} />
                   <span>
                     {option.name} <span className={styles.optionCount}>{option.count}</span>
@@ -56,7 +76,7 @@ export const FiltersSideBar = () => {
         ))}
       </div>
 
-      <Button className={styles.stickyButton} variant="yellow" size="md">
+      <Button className={styles.stickyButton} variant="yellow" size="md" onClick={handleApply}>
         Показать
       </Button>
     </aside>

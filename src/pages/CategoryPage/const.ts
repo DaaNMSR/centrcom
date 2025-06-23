@@ -1,3 +1,5 @@
+import React from 'react';
+
 export const categories = {
   tv: 'Телевизоры и аудиотехника',
   phones: 'Смартфоны и гаджеты',
@@ -40,5 +42,21 @@ export const getPageOptions = (totalPages: number): { value: string; label: stri
   return Array.from({ length: totalPages }, (_, i) => {
     const page = (i + 1).toString();
     return { value: page, label: page };
+  });
+};
+
+export const removeFilter = (
+  setSelectedFilters: React.Dispatch<React.SetStateAction<{ [filterName: string]: string[] }>>,
+  filterName: string,
+  value: string,
+) => {
+  setSelectedFilters(prev => {
+    const updated = prev[filterName].filter(v => v !== value);
+    if (updated.length === 0) {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const { [filterName]: _, ...rest } = prev;
+      return rest;
+    }
+    return { ...prev, [filterName]: updated };
   });
 };

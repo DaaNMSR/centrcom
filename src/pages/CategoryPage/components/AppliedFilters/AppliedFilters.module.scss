@@ -1,15 +1,14 @@
 .currentFilters {
   display: flex;
+  flex-wrap: wrap;
   gap: 8px;
   padding: 16px;
   border: 1px solid rgb(242 244 247 / 100%);
   border-radius: 12px;
   background-color: #FFF;
   margin-bottom: 32px;
+}
 
-  > * {
-    padding: 10px 20px;
-    border-radius: 44px;
-    background-color: rgb(242 244 247 / 100%);
-  }
+.deleteFilterButton {
+  border-radius: 44px;
 }
