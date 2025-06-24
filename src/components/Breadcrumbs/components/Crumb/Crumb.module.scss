@@ -1,10 +1,17 @@
-.breadcrumbs {
+.crumb {
   display: flex;
   align-items: center;
-  margin-bottom: 25px;
 }
 
-.link {
+.separator {
+  margin-right: 12px;
+}
+
+.current {
+  color: #D0D5DD;
+}
+
+.link, .current {
   font-size: 14px;
   font-weight: 300;
   line-height: 1;
