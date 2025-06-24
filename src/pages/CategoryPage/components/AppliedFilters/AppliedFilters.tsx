@@ -38,6 +38,7 @@ export const AppliedFilters: React.FC<AppliedFiltersProps> = ({
         variant="gray"
         iconRight={<CloseIcon width="16" height="16" />}
         size="md"
+        disabled={!Object.keys(selectedFilters).length}
       >
         Сбросить все
       </Button>
