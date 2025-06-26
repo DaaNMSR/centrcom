@@ -6,6 +6,7 @@ import { useGetProductByIdQuery } from '../../redux/api/categoryProductsApi.ts';
 import { skipToken } from '@reduxjs/toolkit/query';
 import { useGetNewProductsQuery } from '../../redux/api/newProductsApi.ts';
 import { ProductInfo } from './components/ProductInfo';
+import { ProductSlider } from './components/ProductSlider';
 
 export const ProductPage = () => {
   const { shortCategory, id } = useParams<{ shortCategory: string; id: string }>();
@@ -25,7 +26,7 @@ export const ProductPage = () => {
       <h1 className={styles.productMainTitle}>{product.name}</h1>
       <div className={styles.productInfo}>
         <div className={styles.productImage}>
-          <img src={product.image[0]} alt={product.name} />
+          <ProductSlider images={product.image} alt={product.name} />
         </div>
         <ProductInfo product={product} />
       </div>

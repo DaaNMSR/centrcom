@@ -1,0 +1,46 @@
+.slider {
+  width: 100%;
+  position: relative;
+}
+
+.sliderWindow {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.sliderTrack {
+  display: flex;
+  transition: transform 0.3s ease-in-out;
+}
+
+.slide {
+  flex-shrink: 0;
+  width: 100%;
+  object-fit: cover;
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 32px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #F2F4F7;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #E7EEEA;
+  }
+
+  &.active {
+    cursor: default;
+    background-color: #FAD12E;
+  }
+}
