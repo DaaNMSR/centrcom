@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import styles from './ProductSlider.module.css';
+import styles from './ProductSlider.module.scss';
 
 interface ProductSliderProps {
   images: string[];
