@@ -1,11 +1,16 @@
 .controls {
   display: flex;
   justify-content: space-between;
+  margin-top: 32px;
 }
 
 .pagination {
+  padding: 6px;
   display: flex;
   gap: 10px;
+  background-color: #FFF;
+  border-radius: 12px;
+  border: 1px solid #F2F4F7;
 
   button {
     transition: all 0.2s ease;
@@ -32,6 +37,10 @@
 
 .activePage {
   background-color: rgb(250 209 46 / 100%);
+
+  &:hover {
+    cursor: default;
+  }
 }
 
 .viewToggle {
