@@ -1,6 +1,6 @@
 import styles from './Header.module.scss';
-import HeaderBottom from './components/HeaderBottom/HeaderBottom';
-import HeaderTop from './components/HeaderTop/HeaderTop';
+import { HeaderBottom } from './components/HeaderBottom';
+import { HeaderTop } from './components/HeaderTop';
 
 export const Header = () => {
   return (

@@ -5,16 +5,27 @@ import { Button } from '../../../../UI/Button';
 import IconBasket from './images/basket.svg';
 import IconBurger from './images/mySvg/BurgerIcon';
 import IconClose from './images/mySvg/CloseIcon';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { Input } from '../../../../UI/Input';
 import { CatalogPopup } from '../../../CatalogPopup';
 import { featureFlags } from '../../../../../featureFlags.ts';
+import { useAppDispatch, useAppSelector } from '../../../../redux/hooks.ts';
+import { toggleCartPopup } from '../../../../redux/reducers/cartSlice.ts';
+import { CartPopup } from '../../../CartPopup';
 
-const HeaderBottom = () => {
+export const HeaderBottom = () => {
   const [isToggled, setIsToggled] = useState(false);
+  const dispatch = useAppDispatch();
+  const totalPrice = useAppSelector(state => state.cart.totalPrice);
+  const cartButtonRef = useRef<HTMLButtonElement>(null);
+  const totalCount = useAppSelector(state => state.cart.totalCount);
 
-  const handleClick = () => {
+  const handleToggleCatalogPopup = () => {
     setIsToggled(!isToggled);
+  };
+
+  const handeToggleCartPopup = () => {
+    dispatch(toggleCartPopup());
   };
 
   return (
@@ -22,7 +33,11 @@ const HeaderBottom = () => {
       <Link to="/">
         <img src={logo} alt="логотип" className={styles.logo} />
       </Link>
-      <Button variant="yellow" iconRight={isToggled ? <IconClose /> : <IconBurger />} onClick={handleClick}>
+      <Button
+        variant="yellow"
+        iconRight={isToggled ? <IconClose /> : <IconBurger />}
+        onClick={handleToggleCatalogPopup}
+      >
         Каталог
       </Button>
 
@@ -31,13 +46,21 @@ const HeaderBottom = () => {
       )}
 
       {featureFlags.basketButton && (
-        <Button variant="gray" iconRight={IconBasket}>
-          Корзина
-        </Button>
+        <>
+          <Button
+            variant="gray"
+            iconRight={IconBasket}
+            onClick={handeToggleCartPopup}
+            ref={cartButtonRef}
+            className={styles.basketButton}
+          >
+            {totalPrice ? `${totalPrice.toLocaleString()} ₽` : 'Корзина'}
+            {totalCount ? <div className={styles.totalCount}>{totalCount.toLocaleString()}</div> : null}
+          </Button>
+        </>
       )}
       {isToggled && <CatalogPopup />}
+      <CartPopup triggerRef={cartButtonRef} />
     </div>
   );
 };
-
-export default HeaderBottom;

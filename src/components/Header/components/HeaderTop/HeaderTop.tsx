@@ -7,7 +7,7 @@ import CityPopup from './components/CityPopup/CityPopup';
 import { useEffect } from 'react';
 import { menu } from './const';
 
-const HeaderTop = () => {
+export const HeaderTop = () => {
   const dispatch = useAppDispatch();
   const isOpen = useAppSelector(state => state.cityPopup.isOpen);
   const currentCity = useAppSelector(state => state.cityPopup.currentCity);
@@ -49,5 +49,3 @@ const HeaderTop = () => {
     </div>
   );
 };
-
-export default HeaderTop;

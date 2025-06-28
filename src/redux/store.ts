@@ -2,6 +2,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import sliderReducer from '../redux/reducers/sliderSlice';
 import cityPopupReducer from '../redux/reducers/cityPopupSlice';
 import modalReducer from '../redux/reducers/modalSlice';
+import cartReducer from '../redux/reducers/cartSlice.ts';
 import { newProductsApi } from './api/newProductsApi.ts';
 import { popupCategoriesApi } from './api/popupCategoriesApi.ts';
 import { vacanciesShortApi } from './api/vacanciesShortApi.ts';
@@ -15,6 +16,7 @@ export const store = configureStore({
     slider: sliderReducer,
     cityPopup: cityPopupReducer,
     modal: modalReducer,
+    cart: cartReducer,
     [newProductsApi.reducerPath]: newProductsApi.reducer,
     [popupCategoriesApi.reducerPath]: popupCategoriesApi.reducer,
     [vacanciesShortApi.reducerPath]: vacanciesShortApi.reducer,

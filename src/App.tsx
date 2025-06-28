@@ -12,9 +12,9 @@ import { PageNotFound } from './components/PageNotFound';
 import { VacancyDetailPage } from './pages/JobsPage/components/VacancyDetailPage';
 import { CatalogPage } from './pages/CatalogPage';
 import { SellCategory } from './pages/SellPage/components/SellCategory';
-import { CartEmptyPage } from './pages/CartEmptyPage';
 import { ProductPage } from './pages/ProductPage';
 import { ScrollToTop } from './components/ScrollToTop';
+import { CartPage } from './pages/CartPage';
 import { CategoryPage } from './pages/CategoryPage';
 import './App.scss';
 import 'leaflet/dist/leaflet.css';
@@ -23,10 +23,11 @@ export const App = () => {
   const location = useLocation();
   const isMainPage = location.pathname === '/';
   const isNotFoundPage = location.pathname === '/404';
+  const isCartPage = location.pathname === '/cart';
   return (
     <>
       <Header />
-      {!isMainPage && !isNotFoundPage && (
+      {!isMainPage && !isNotFoundPage && !isCartPage && (
         <div className="breadcrumbs">
           <Breadcrumbs />
         </div>
@@ -44,7 +45,7 @@ export const App = () => {
         <Route path="/jobs" element={<JobsPage />} />
         <Route path="/jobs/:vacancyId" element={<VacancyDetailPage />} />
         <Route path="/contacts" element={<ContactsPage />} />
-        <Route path="/cartempty" element={<CartEmptyPage />} />
+        <Route path="/cart" element={<CartPage />} />
         <Route path="/404" element={<PageNotFound />} />
       </Routes>
       <Footer />
