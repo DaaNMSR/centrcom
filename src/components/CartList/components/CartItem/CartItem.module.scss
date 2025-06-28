@@ -24,11 +24,18 @@
 }
 
 .cartItemTitle {
-  max-width: 300px;
-  margin-right: 48px;
   font-weight: 400;
   font-size: 14px;
   line-height: 1.5;
+
+  &.popup {
+    max-width: 300px;
+    margin-right: 48px;
+  }
+
+  &.cartPage {
+    width: 407px;
+  }
 }
 
 .cartItemArticle {

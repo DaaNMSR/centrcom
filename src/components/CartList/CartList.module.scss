@@ -5,6 +5,7 @@
   margin: 9px 0 24px;
   padding-bottom: 24px;
   border-bottom: 1px solid #F2F4F7;
+  max-height: fit-content;
 
   &.cartPage {
     width: 100%;
@@ -12,7 +13,6 @@
     border-radius: 12px;
     background-color: #FFF;
     border: 1px solid #F2F4F7;
-    margin-top: 0;
+    margin: 0 0 192px;
   }
 }
-

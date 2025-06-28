@@ -8,6 +8,7 @@ import minusIcon from './images/minus.svg';
 import { decreaseQuantity, increaseQuantity, removeFromCart } from '../../../../redux/reducers/cartSlice.ts';
 import { useAppDispatch } from '../../../../redux/hooks.ts';
 import type { CartItem as Cart } from '../../../../redux/reducers/cartSlice.ts';
+import { Link } from 'react-router-dom';
 
 export type CartVariant = 'popup' | 'cartPage';
 
@@ -35,18 +36,21 @@ export const CartItem: React.FC<CartItemProps> = ({ item, variant }) => {
 
   return (
     <div className={`${styles.cartItem} ${variantClass}`}>
-      <div className={styles.cartItemTitleBlock}>
-        <img src={item.image[0]} alt={item.name} className={`${styles.cartItemImage} ${variantClass}`} />
+      <Link to={`/catalog/${item.category}/id/${item.id}`}>
+        <div className={styles.cartItemTitleBlock}>
+          <img src={item.image[0]} alt={item.name} className={`${styles.cartItemImage} ${variantClass}`} />
 
-        {variant === 'popup' ? (
-          <p className={styles.cartItemTitle}>{item.name}</p>
-        ) : (
-          <div className={styles.cartItemTitleWrapper}>
-            <p className={styles.cartItemTitle}>{item.name}</p>
-            <p className={styles.cartItemArticle}>{item.article}</p>
-          </div>
-        )}
-      </div>
+          {variant === 'popup' ? (
+            <p className={`${styles.cartItemTitle} ${variantClass}`}>{item.name}</p>
+          ) : (
+            <div>
+              <p className={`${styles.cartItemTitle} ${variantClass}`}>{item.name}</p>
+              <p className={styles.cartItemArticle}>{item.article}</p>
+            </div>
+          )}
+        </div>
+      </Link>
+
       {variant === 'cartPage' && (
         <div className={styles.cartItemQuantity}>
           <Button variant="gray" className={styles.quantityButton} size="md" onClick={handleDecrease}>
