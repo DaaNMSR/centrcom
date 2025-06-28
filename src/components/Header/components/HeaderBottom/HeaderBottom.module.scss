@@ -8,3 +8,23 @@
 .logo {
   min-width: 276px;
 }
+
+.basketButton {
+  position: relative;
+}
+
+.totalCount {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 9999%;
+  background-color:#FAD12E;
+  border: 2px solid #F9FAFB;
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  font-weight: 600;
+  font-size: 12px;
+  width: 20px;
+  height: 20px;
+}

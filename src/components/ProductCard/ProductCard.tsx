@@ -4,6 +4,8 @@ import basketIcon from './images/basket-icon.svg';
 import { useNavigate } from 'react-router-dom';
 import type { FullProduct } from '../../../mock-server/data/newProducts.ts';
 import React from 'react';
+import { useAppDispatch } from '../../redux/hooks.ts';
+import { addToCart } from '../../redux/reducers/cartSlice.ts';
 
 export interface ProductCardProps {
   product: FullProduct;
@@ -14,12 +16,15 @@ export interface ProductCardProps {
 export const ProductCard: React.FC<ProductCardProps> = ({ product, variant = 'grid', shortCategory }) => {
   const navigate = useNavigate();
   const variantClass = styles[variant];
+  const dispatch = useAppDispatch();
 
   const handleProductCardClick = () => {
     navigate(`/catalog/${shortCategory}/id/${product.id}`);
   };
-  const stopPropagation = (e: React.MouseEvent) => {
+
+  const handleAddToCart = (e: { stopPropagation: () => void }) => {
     e.stopPropagation();
+    dispatch(addToCart(product));
   };
 
   return (
@@ -33,13 +38,13 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, variant = 'gr
           <>
             <div className={styles.headerList}>
               <h4 className={styles.title}>{product.name}</h4>
-              <p className={`${styles.price} ${variantClass}`}>{product.price} ₽</p>
+              <p className={`${styles.price} ${variantClass}`}>{Number(product.price).toLocaleString()} ₽</p>
             </div>
             <div className={styles.buttonGroupList}>
-              <Button size="md" onClick={stopPropagation}>
+              <Button size="md" onClick={e => e.stopPropagation()}>
                 Купить в кредит
               </Button>
-              <Button iconLeft={basketIcon} size="md" variant="dark" onClick={stopPropagation}>
+              <Button iconLeft={basketIcon} size="md" variant="dark" onClick={handleAddToCart}>
                 В корзину
               </Button>
             </div>
@@ -47,17 +52,17 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, variant = 'gr
         ) : (
           <>
             <h4 className={`${styles.title} ${variantClass}`}>{product.name}</h4>
-            <p className={`${styles.price} ${variantClass}`}>{product.price} ₽</p>
+            <p className={`${styles.price} ${variantClass}`}>{Number(product.price).toLocaleString()} ₽</p>
             <Button
               iconLeft={basketIcon}
               size="md"
               variant="dark"
               className={styles.buttonTop}
-              onClick={stopPropagation}
+              onClick={handleAddToCart}
             >
               В корзину
             </Button>
-            <Button size="md" className={styles.buttonBottom} onClick={stopPropagation}>
+            <Button size="md" className={styles.buttonBottom} onClick={e => e.stopPropagation()}>
               Купить в кредит
             </Button>
           </>

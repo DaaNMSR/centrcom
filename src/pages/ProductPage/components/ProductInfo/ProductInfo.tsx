@@ -3,12 +3,19 @@ import { Button } from '../../../../UI/Button';
 import { Link } from 'react-router-dom';
 import type { FullProduct } from '../../../../../mock-server/data/newProducts.ts';
 import React from 'react';
+import { addToCart } from '../../../../redux/reducers/cartSlice.ts';
+import { useAppDispatch } from '../../../../redux/hooks.ts';
 
 interface ProductInfoProps {
   product: FullProduct;
 }
 
 export const ProductInfo: React.FC<ProductInfoProps> = ({ product }) => {
+  const dispatch = useAppDispatch();
+  const handleAddToCart = () => {
+    dispatch(addToCart(product));
+  };
+
   return (
     <div className={styles.productInfoContainer}>
       <h2 className={styles.productName}>{product.name}</h2>
@@ -23,15 +30,17 @@ export const ProductInfo: React.FC<ProductInfoProps> = ({ product }) => {
 
       <div className={styles.productBlock}>
         <div>
-          <p className={styles.productPrice}>{product.price} ₽</p>
+          <p className={styles.productPrice}>{Number(product.price).toLocaleString()} ₽</p>
           <p className={styles.productPriceCredit}>
-            или {Math.round(+product.price.replace(/\s/g, '') / 10)} ₽/мес.
+            или {Math.round(Number(product.price) / 10).toLocaleString()} ₽/мес.
           </p>
         </div>
 
         <div className={styles.productButtons}>
           <Button disabled={!product.creditAvailable}>В кредит</Button>
-          <Button variant="yellow">В корзину</Button>
+          <Button variant="yellow" onClick={handleAddToCart}>
+            В корзину
+          </Button>
         </div>
       </div>
       <div className={styles.availability}>
