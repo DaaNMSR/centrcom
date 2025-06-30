@@ -3,8 +3,14 @@ import { Button } from '../../../../UI/Button';
 import { Link } from 'react-router-dom';
 import type { FullProduct } from '../../../../../mock-server/data/newProducts.ts';
 import React from 'react';
-import { addToCart } from '../../../../redux/reducers/cartSlice.ts';
-import { useAppDispatch } from '../../../../redux/hooks.ts';
+import {
+  addToCart,
+  decreaseQuantity,
+  increaseQuantity,
+  removeFromCart,
+} from '../../../../redux/reducers/cartSlice.ts';
+import { useAppDispatch, useAppSelector } from '../../../../redux/hooks.ts';
+import { QuantityCounter } from '../../../../components/QuantityCounter';
 
 interface ProductInfoProps {
   product: FullProduct;
@@ -12,8 +18,27 @@ interface ProductInfoProps {
 
 export const ProductInfo: React.FC<ProductInfoProps> = ({ product }) => {
   const dispatch = useAppDispatch();
+
+  const cartItem = useAppSelector(state => state.cart.items.find(i => i.id === product.id));
+
   const handleAddToCart = () => {
     dispatch(addToCart(product));
+  };
+
+  const handleIncrease = () => {
+    if (cartItem) {
+      dispatch(increaseQuantity(cartItem.id));
+    }
+  };
+
+  const handleDecrease = () => {
+    if (!cartItem) return;
+
+    if (cartItem.quantity === 1) {
+      dispatch(removeFromCart(cartItem.id));
+    } else {
+      dispatch(decreaseQuantity(cartItem.id));
+    }
   };
 
   return (
@@ -35,13 +60,20 @@ export const ProductInfo: React.FC<ProductInfoProps> = ({ product }) => {
             или {Math.round(Number(product.price) / 10).toLocaleString()} ₽/мес.
           </p>
         </div>
-
-        <div className={styles.productButtons}>
-          <Button disabled={!product.creditAvailable}>В кредит</Button>
-          <Button variant="yellow" onClick={handleAddToCart}>
-            В корзину
-          </Button>
-        </div>
+        {cartItem ? (
+          <QuantityCounter
+            itemQuantity={cartItem.quantity}
+            handleDecrease={handleDecrease}
+            handleIncrease={handleIncrease}
+          />
+        ) : (
+          <div className={styles.productButtons}>
+            <Button disabled={!product.creditAvailable}>В кредит</Button>
+            <Button variant="yellow" onClick={handleAddToCart}>
+              В корзину
+            </Button>
+          </div>
+        )}
       </div>
       <div className={styles.availability}>
         <h3 className={styles.availabilityTitle}>Наличие сейчас:</h3>
