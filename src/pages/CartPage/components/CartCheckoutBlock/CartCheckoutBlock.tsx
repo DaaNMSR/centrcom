@@ -1,4 +1,4 @@
-import styles from './CartCheckoutBlock.module.css';
+import styles from './CartCheckoutBlock.module.scss';
 import { Button } from '../../../../UI/Button';
 import { deliveryAt } from '../../const.ts';
 import { useAppSelector } from '../../../../redux/hooks.ts';
