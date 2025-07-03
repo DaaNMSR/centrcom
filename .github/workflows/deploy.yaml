@@ -4,6 +4,12 @@ on:
   push:
     branches: [main]
 
+env:
+  REMOTE_HOST: 89.111.171.148
+  REMOTE_USER: root
+  PROJECT_PATH: /var/www/fo
+  MOCK_PATH: /var/www/mock-server
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -34,28 +40,49 @@ jobs:
 
       - name: Create remote folders if not exist
         run: |
-          ssh -o StrictHostKeyChecking=no root@89.111.171.148 << 'ENDSSH'
-            mkdir -p /var/www/fo
-            mkdir -p /var/www/mock-server
+          ssh -o StrictHostKeyChecking=no ${{ env.REMOTE_USER }}@${{ env.REMOTE_HOST }} << 'ENDSSH'
+            mkdir -p ${{ env.PROJECT_PATH }}
+            mkdir -p ${{ env.MOCK_PATH }}
           ENDSSH
 
       - name: Upload build to server
-        run: rsync -avz --delete ./dist/ root@89.111.171.148:/var/www/fo/
+        run: rsync -az --delete ./dist/ ${{ env.REMOTE_USER }}@${{ env.REMOTE_HOST }}:${{ env.PROJECT_PATH }}/
 
       - name: Upload mock-server to server
-        run: rsync -avz ./mock-server/ root@89.111.171.148:/var/www/mock-server/
+        run: rsync -az ./mock-server/ ${{ env.REMOTE_USER }}@${{ env.REMOTE_HOST }}:${{ env.MOCK_PATH }}/
+
+      - name: Upload .env file to server
+        run: rsync -az ./mock-server/.env ${{ env.REMOTE_USER }}@${{ env.REMOTE_HOST }}:${{ env.MOCK_PATH }}/
 
       - name: Install and start mock-server on server
         run: |
-          ssh -o StrictHostKeyChecking=no root@89.111.171.148 << 'ENDSSH'
-            cd /var/www/mock-server
+          ssh -o StrictHostKeyChecking=no ${{ env.REMOTE_USER }}@${{ env.REMOTE_HOST }} << 'ENDSSH'
+            cd ${{ env.MOCK_PATH }}
+
+            export NODE_ENV=production
+            export HOST=0.0.0.0
+            export PORT=3001
+            export PROTOCOL=https
+            export SSL_KEY_PATH=/etc/letsencrypt/live/fo.centrkom174.ru/privkey.pem
+            export SSL_CERT_PATH=/etc/letsencrypt/live/fo.centrkom174.ru/fullchain.pem
+
             if ! command -v yarn &> /dev/null; then
               npm install -g yarn
             fi
             yarn install --frozen-lockfile
             yarn build
             npm install -g pm2
+            pm2 status
             pm2 delete mock-server || true
             pm2 start yarn --name mock-server -- start
+            pm2 status
             pm2 save
           ENDSSH
+
+
+      - name: Show pm2 logs
+        run: |
+          ssh -o StrictHostKeyChecking=no ${{ env.REMOTE_USER }}@${{ env.REMOTE_HOST }} << 'ENDSSH'
+            pm2 logs mock-server --lines 50
+          ENDSSH
+
