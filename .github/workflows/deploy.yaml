@@ -58,7 +58,7 @@ jobs:
         run: |
           ssh -o StrictHostKeyChecking=no ${{ env.REMOTE_USER }}@${{ env.REMOTE_HOST }} << 'ENDSSH'
             cd ${{ env.MOCK_PATH }}
-
+      
             export NODE_ENV=production
             export HOST=0.0.0.0
             export PORT=3001
@@ -70,19 +70,11 @@ jobs:
               npm install -g yarn
             fi
             yarn install --frozen-lockfile
-            yarn build
+        
+      
             npm install -g pm2
-            pm2 status
             pm2 delete mock-server || true
-            pm2 start yarn --name mock-server -- start
-            pm2 status
+
+            pm2 start node --name mock-server -- dist/index.js
             pm2 save
           ENDSSH
-
-
-      - name: Show pm2 logs
-        run: |
-          ssh -o StrictHostKeyChecking=no ${{ env.REMOTE_USER }}@${{ env.REMOTE_HOST }} << 'ENDSSH'
-            pm2 logs mock-server --lines 50
-          ENDSSH
-
