@@ -1,11 +1,12 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import type { FullProduct } from '../../../mock-server/data/newProducts.ts';
 import type { SortBy } from '../../pages/CategoryPage/components/SortPanel/SortPanel.tsx';
+import { API_BASE_URL } from '../../../apiBaseUrl.ts';
 
 export const categoryProductsApi = createApi({
   reducerPath: 'categoryProductsApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://localhost:3001',
+    baseUrl: API_BASE_URL,
   }),
   endpoints: builder => ({
     getCategoryProducts: builder.query<
