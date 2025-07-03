@@ -6,7 +6,7 @@ import { clearCart, toggleCartPopup } from '../../redux/reducers/cartSlice.ts';
 import { Link } from 'react-router-dom';
 import { CartList } from '../CartList';
 
-export const CartPopup = ({ triggerRef }: { triggerRef: React.RefObject<HTMLElement> | null }) => {
+export const CartPopup = ({ triggerRef }: { triggerRef: React.RefObject<HTMLElement | null> | null }) => {
   const dispatch = useAppDispatch();
   const totalPrice = useAppSelector(state => state.cart.totalPrice);
   const totalCount = useAppSelector(state => state.cart.totalCount);

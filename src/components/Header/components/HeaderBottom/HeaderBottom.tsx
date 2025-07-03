@@ -45,20 +45,17 @@ export const HeaderBottom = () => {
         <Input iconLeft={true} placeholder="Поиск..." buttonRight={<Button size="md">Найти</Button>} />
       )}
 
-      {featureFlags.basketButton && (
-        <>
-          <Button
-            variant="gray"
-            iconRight={IconBasket}
-            onClick={handeToggleCartPopup}
-            ref={cartButtonRef}
-            className={styles.basketButton}
-          >
-            {totalPrice ? `${totalPrice.toLocaleString()} ₽` : 'Корзина'}
-            {totalCount ? <div className={styles.totalCount}>{totalCount.toLocaleString()}</div> : null}
-          </Button>
-        </>
-      )}
+      <Button
+        variant="gray"
+        iconRight={IconBasket}
+        onClick={handeToggleCartPopup}
+        ref={cartButtonRef}
+        className={styles.basketButton}
+      >
+        {totalPrice ? `${totalPrice.toLocaleString()} ₽` : 'Корзина'}
+        {totalCount ? <div className={styles.totalCount}>{totalCount.toLocaleString()}</div> : null}
+      </Button>
+
       {isToggled && <CatalogPopup />}
       <CartPopup triggerRef={cartButtonRef} />
     </div>

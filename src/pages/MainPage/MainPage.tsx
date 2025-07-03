@@ -3,7 +3,6 @@ import { ProductSection } from '../../components/ProductSection';
 import { PopularCategories } from './components/PopularCategories/PopularCategories';
 import Slider from './components/Slider/Slider';
 import styles from './MainPage.module.scss';
-import { featureFlags } from '../../../featureFlags.ts';
 import { useGetNewProductsQuery } from '../../redux/api/newProductsApi.ts';
 
 export const MainPage = () => {
@@ -13,7 +12,7 @@ export const MainPage = () => {
       <main>
         <Slider />
         <Cards />
-        {featureFlags.popularCategories && <PopularCategories />}
+        <PopularCategories />
         <ProductSection products={newProducts ?? []} />
       </main>
     </div>
