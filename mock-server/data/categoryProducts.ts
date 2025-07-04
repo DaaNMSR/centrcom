@@ -75,7 +75,7 @@ export const generateProduct = (
   new: isNew,
   price: faker.commerce.price({ min: 1000, max: 200000, dec: 0 }),
   description: faker.commerce.productDescription(),
-  image: Array.from({ length: 5 }, () => `https://picsum.photos/seed/${faker.string.uuid()}/290/304`),
+  image: Array.from({ length: 5 }, (_, i) => `https://placehold.co/290x304?text=Image+${i + 1}`),
   specifications: Array.from({ length: 5 }, () => ({
     title: faker.commerce.productMaterial(),
     value: faker.commerce.productAdjective(),

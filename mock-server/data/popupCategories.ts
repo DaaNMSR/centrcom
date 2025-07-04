@@ -30,67 +30,67 @@ const generateSubcategories = (count: number, subSubCount: number): Subcategory[
 
 export const popupCategories: CatalogCategory[] = [
   {
-    image: 'http://localhost:3001/public/images/tv.svg',
+    image: '/public/images/tv.svg',
     name: 'Телевизоры и аудиотехника',
     subcategories: generateSubcategories(5, 4),
   },
   {
-    image: 'http://localhost:3001/public/images/pc.svg',
+    image: '/public/images/pc.svg',
     name: 'Ноутбуки и компьютеры',
     subcategories: generateSubcategories(5, 4),
   },
   {
-    image: 'http://localhost:3001/public/images/phone.svg',
+    image: '/public/images/phone.svg',
     name: 'Смартфоны и гаджеты',
     subcategories: generateSubcategories(5, 4),
   },
   {
-    image: 'http://localhost:3001/public/images/ps.svg',
+    image: '/public/images/ps.svg',
     name: 'Игровые приставки и игры',
     subcategories: generateSubcategories(5, 4),
   },
   {
-    image: 'http://localhost:3001/public/images/accessories.svg',
+    image: '/public/images/accessories.svg',
     name: 'Аксессуары',
     subcategories: generateSubcategories(5, 4),
   },
   {
-    image: 'http://localhost:3001/public/images/printer.svg',
+    image: '/public/images/printer.svg',
     name: 'Принтеры и МФУ',
     subcategories: generateSubcategories(5, 4),
   },
   {
-    image: 'http://localhost:3001/public/images/tools.svg',
+    image: '/public/images/tools.svg',
     name: 'Инструменты',
     subcategories: generateSubcategories(5, 4),
   },
   {
-    image: 'http://localhost:3001/public/images/camera.svg',
+    image: '/public/images/camera.svg',
     name: 'Фототехника',
     subcategories: generateSubcategories(5, 4),
   },
   {
-    image: 'http://localhost:3001/public/images/home.svg',
+    image: '/public/images/home.svg',
     name: 'Товары для дома',
     subcategories: generateSubcategories(5, 4),
   },
   {
-    image: 'http://localhost:3001/public/images/climat.svg',
+    image: '/public/images/climat.svg',
     name: 'Климатическое оборудование',
     subcategories: generateSubcategories(5, 4),
   },
   {
-    image: 'http://localhost:3001/public/images/beauty.svg',
+    image: '/public/images/beauty.svg',
     name: 'Красота и здоровье',
     subcategories: generateSubcategories(5, 4),
   },
   {
-    image: 'http://localhost:3001/public/images/hobby.svg',
+    image: '/public/images/hobby.svg',
     name: 'Хобби и отдых',
     subcategories: generateSubcategories(5, 4),
   },
   {
-    image: 'http://localhost:3001/public/images/car.svg',
+    image: '/public/images/car.svg',
     name: 'Для автомобиля',
     subcategories: generateSubcategories(5, 4),
   },
