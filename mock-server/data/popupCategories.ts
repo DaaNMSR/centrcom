@@ -30,67 +30,67 @@ const generateSubcategories = (count: number, subSubCount: number): Subcategory[
 
 export const popupCategories: CatalogCategory[] = [
   {
-    image: '/public/images/tv.svg',
+    image: '/images/tv.svg',
     name: 'Телевизоры и аудиотехника',
     subcategories: generateSubcategories(5, 4),
   },
   {
-    image: '/public/images/pc.svg',
+    image: '/images/pc.svg',
     name: 'Ноутбуки и компьютеры',
     subcategories: generateSubcategories(5, 4),
   },
   {
-    image: '/public/images/phone.svg',
+    image: '/images/phone.svg',
     name: 'Смартфоны и гаджеты',
     subcategories: generateSubcategories(5, 4),
   },
   {
-    image: '/public/images/ps.svg',
+    image: '/images/ps.svg',
     name: 'Игровые приставки и игры',
     subcategories: generateSubcategories(5, 4),
   },
   {
-    image: '/public/images/accessories.svg',
+    image: '/images/accessories.svg',
     name: 'Аксессуары',
     subcategories: generateSubcategories(5, 4),
   },
   {
-    image: '/public/images/printer.svg',
+    image: '/images/printer.svg',
     name: 'Принтеры и МФУ',
     subcategories: generateSubcategories(5, 4),
   },
   {
-    image: '/public/images/tools.svg',
+    image: '/images/tools.svg',
     name: 'Инструменты',
     subcategories: generateSubcategories(5, 4),
   },
   {
-    image: '/public/images/camera.svg',
+    image: '/images/camera.svg',
     name: 'Фототехника',
     subcategories: generateSubcategories(5, 4),
   },
   {
-    image: '/public/images/home.svg',
+    image: '/images/home.svg',
     name: 'Товары для дома',
     subcategories: generateSubcategories(5, 4),
   },
   {
-    image: '/public/images/climat.svg',
+    image: '/images/climat.svg',
     name: 'Климатическое оборудование',
     subcategories: generateSubcategories(5, 4),
   },
   {
-    image: '/public/images/beauty.svg',
+    image: '/images/beauty.svg',
     name: 'Красота и здоровье',
     subcategories: generateSubcategories(5, 4),
   },
   {
-    image: '/public/images/hobby.svg',
+    image: '/images/hobby.svg',
     name: 'Хобби и отдых',
     subcategories: generateSubcategories(5, 4),
   },
   {
-    image: '/public/images/car.svg',
+    image: '/images/car.svg',
     name: 'Для автомобиля',
     subcategories: generateSubcategories(5, 4),
   },
