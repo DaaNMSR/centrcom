@@ -30,7 +30,7 @@ app.use(
 );
 
 app.use(express.json());
-app.use('/public', express.static(path.join(__dirname, './public')));
+app.use('/', express.static(path.join(__dirname, './public')));
 app.use('/main-categories', mainCategoriesRouter);
 app.use('/category', categoryProductsRouter);
 app.use('/new-products', productRouter);
