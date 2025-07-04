@@ -18,5 +18,4 @@ export const popupCategoriesApi = createApi({
   }),
 });
 
-export const { useGetCategoryNamesQuery, useGetSubCategoriesByNameQuery, useGetCategoryNamesImagesQuery } =
-  popupCategoriesApi;
+export const { useGetSubCategoriesByNameQuery, useGetCategoryNamesImagesQuery } = popupCategoriesApi;
